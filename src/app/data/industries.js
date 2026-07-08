@@ -191,3 +191,55 @@ export function getIndustry(slug) {
 export function getIndustrySlugs() {
   return industries.map((i) => i.slug);
 }
+
+// ── Image resolution ────────────────────────────────────────────────
+// Every image can be a local path OR a remote CDN URL (https://…).
+// Default photos come from the free Unsplash image CDN (by industry slug);
+// replace them with your own product shots anytime — set `image` on a
+// product or industry, or `banner` on an industry (see IMAGES.md).
+// If any remote photo fails to load, SmartImage falls back to the SVG mockup.
+
+const U = (id) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=70`;
+
+// Free stock photos per industry. First photo is used for cards/heroes;
+// product cards rotate through the whole list for variety.
+const industryPhotos = {
+  "sportswear": ["1577212017184-80cc0da11082", "1552066379-e7bfd22155c5"],
+  "work-uniforms": ["1589939705384-5185137a7f0f", "1567954970774-58d6aa6c50dc"],
+  "medical-uniforms": ["1621862912856-0909fb7f14b7", "1594824476967-48c8b964273f"],
+  "hospitality-uniforms": ["1759521296013-559479e2a891", "1574966740637-12c84035a4f2"],
+  "corporate-uniforms": ["1507679799987-c73779587ccf", "1515736076039-a3ca66043b27"],
+  "school-uniforms": ["1569173675610-42c361a86e37", "1612229693210-30e16029c415"],
+  "military-tactical": ["1608396941316-ea89219bd56e", "1578241030078-01b38ededda4"],
+  "accessories": ["1588850561407-ed78c282e89b", "1521369909029-2afed882baee"],
+};
+
+function photosFor(ind) {
+  return (industryPhotos[ind.slug] || []).map(U);
+}
+
+// The built-in SVG mockup, always used as the safe fallback.
+export function mockupFor(ind) {
+  return `/mockups/${ind.slug}.svg`;
+}
+
+// Thumbnail used on industry cards.
+export function industryImage(ind) {
+  if (ind.image) return ind.image;
+  const p = photosFor(ind);
+  return p[0] || mockupFor(ind);
+}
+
+// Large visual used on the industry page hero.
+export function industryBanner(ind) {
+  return ind.banner || industryImage(ind);
+}
+
+// Image for a single product card (rotates through the industry photos).
+export function productImage(product, ind, index = 0) {
+  if (product.image) return product.image;
+  const p = photosFor(ind);
+  if (p.length) return p[index % p.length];
+  return ind.image || mockupFor(ind);
+}

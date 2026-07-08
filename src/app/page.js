@@ -12,7 +12,8 @@ import {
   BadgeCheck,
   Ruler,
 } from "lucide-react";
-import { industries } from "./data/industries";
+import { industries, industryImage, mockupFor } from "./data/industries";
+import SmartImage from "./components/SmartImage";
 
 const features = [
   { icon: ShieldCheck, title: "Premium Quality", desc: "International standards" },
@@ -90,12 +91,15 @@ export default function Home() {
           </div>
 
           {/* Banner image */}
-          <div className="relative">
-            <img
-              src="/banners/hero.svg"
-              alt="Custom uniforms and sportswear mockups"
-              className="w-full"
+          <div className="relative overflow-hidden rounded-xl border border-white/10 shadow-2xl">
+            <SmartImage
+              src="https://images.unsplash.com/photo-1560796952-f1c9b838544c?auto=format&fit=crop&w=1200&q=70"
+              fallback="/banners/hero.svg"
+              alt="Garment stitching and uniform manufacturing"
+              eager
+              className="aspect-[4/3] w-full object-cover"
             />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
           </div>
         </div>
 
@@ -156,11 +160,11 @@ export default function Home() {
                 className="card-hover group overflow-hidden rounded-lg border border-navy/10 bg-white"
               >
                 <div className="h-36 overflow-hidden border-b border-navy/5 bg-navy-50">
-                  <img
-                    src={`/mockups/${ind.slug}.svg`}
-                    alt={`${ind.name} mockup`}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-4 transition duration-300 group-hover:scale-105"
+                  <SmartImage
+                    src={industryImage(ind)}
+                    fallback={mockupFor(ind)}
+                    alt={ind.name}
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5">

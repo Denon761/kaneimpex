@@ -1,35 +1,28 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import SmartImage from "./SmartImage";
+import { productImage, mockupFor } from "../data/industries";
 
 // Product card with a Request-a-Quote button that carries the product
 // and industry into the quote form via query params.
 //
-// Image resolution: uses product.image if provided, otherwise falls back
-// to the industry mockup at /mockups/<slug>.svg. If a provided photo path
-// 404s, onError swaps back to the mockup so the card never looks broken.
-export default function ProductCard({ product, industry }) {
+// Image resolution (see data/industries.js): product.image → industry.image
+// → SVG mockup. Any of these can be a local path or a remote CDN URL, and a
+// failed remote URL falls back to the mockup so the card never looks broken.
+export default function ProductCard({ product, industry, index = 0 }) {
   const href = `/request-a-quote?product=${encodeURIComponent(
     product.name
   )}&industry=${encodeURIComponent(industry.name)}`;
-
-  const mockup = `/mockups/${industry.slug}.svg`;
-  const src = product.image || mockup;
 
   return (
     <div className="card-hover group flex flex-col overflow-hidden rounded-lg border border-navy/10 bg-white">
       {/* Visual */}
       <div className="relative h-44 overflow-hidden border-b border-navy/5 bg-navy-50">
-        <img
-          src={src}
-          alt={`${product.name} mockup`}
-          loading="lazy"
-          onError={(e) => {
-            if (e.currentTarget.src.indexOf(mockup) === -1)
-              e.currentTarget.src = mockup;
-          }}
-          className="h-full w-full object-contain p-5 transition duration-300 group-hover:scale-105"
+        <SmartImage
+          src={productImage(product, industry, index)}
+          fallback={mockupFor(industry)}
+          alt={product.name}
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         />
         <span className="absolute right-3 top-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-navy/40">
           {industry.name}

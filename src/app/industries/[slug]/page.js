@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, ArrowLeft } from "lucide-react";
-import { industries, getIndustry, getIndustrySlugs } from "../../data/industries";
+import {
+  industries,
+  getIndustry,
+  getIndustrySlugs,
+  industryImage,
+  industryBanner,
+  mockupFor,
+} from "../../data/industries";
 import Icon from "../../components/Icon";
 import ProductCard from "../../components/ProductCard";
+import SmartImage from "../../components/SmartImage";
 
 export function generateStaticParams() {
   return getIndustrySlugs().map((slug) => ({ slug }));
@@ -62,11 +70,12 @@ export default async function IndustryPage({ params }) {
 
             {/* Banner mockup + highlights */}
             <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
-              <div className="flex items-center justify-center rounded-lg border border-white/10 bg-white p-6">
-                <img
-                  src={industry.banner || `/mockups/${industry.slug}.svg`}
-                  alt={`${industry.name} mockup`}
-                  className="max-h-52 w-full object-contain"
+              <div className="h-56 overflow-hidden rounded-lg border border-white/10 bg-navy-50">
+                <SmartImage
+                  src={industryBanner(industry)}
+                  fallback={mockupFor(industry)}
+                  alt={industry.name}
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="rounded-lg border border-white/10 bg-white/5 p-6">
@@ -108,11 +117,12 @@ export default async function IndustryPage({ params }) {
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {industry.products.map((product) => (
+            {industry.products.map((product, i) => (
               <ProductCard
                 key={product.name}
                 product={product}
                 industry={industry}
+                index={i}
               />
             ))}
           </div>
@@ -131,11 +141,11 @@ export default async function IndustryPage({ params }) {
                 className="card-hover group overflow-hidden rounded-lg border border-navy/10 bg-white"
               >
                 <div className="h-28 overflow-hidden border-b border-navy/5 bg-navy-50">
-                  <img
-                    src={`/mockups/${ind.slug}.svg`}
-                    alt={`${ind.name} mockup`}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-3 transition duration-300 group-hover:scale-105"
+                  <SmartImage
+                    src={industryImage(ind)}
+                    fallback={mockupFor(ind)}
+                    alt={ind.name}
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5">
