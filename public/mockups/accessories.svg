@@ -1,0 +1,9 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cap accessory mockup">
+  <g stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M78 176 Q78 96 160 96 Q242 96 242 176 L160 176 Z" fill="#1c3a5e"/>
+    <path d="M76 176 L286 196 Q296 200 292 210 Q290 216 280 216 L82 200 Q74 199 74 190 Q74 178 76 176 Z" fill="#16324f"/>
+  </g>
+  <path d="M160 96 Q120 100 100 172" fill="none" stroke="#b78a4a" stroke-width="6"/>
+  <path d="M160 96 Q200 100 220 172" fill="none" stroke="#b78a4a" stroke-width="6"/>
+  <circle cx="160" cy="102" r="7" fill="#b78a4a"/>
+</svg>

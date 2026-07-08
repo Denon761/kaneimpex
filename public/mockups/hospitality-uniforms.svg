@@ -1,0 +1,11 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chef coat mockup">
+  <g fill="#ffffff" stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M110 66 L70 92 L38 76 L16 130 L70 160 L90 146 L90 252 Q90 264 102 264 L218 264 Q230 264 230 252 L230 146 L250 160 L304 130 L282 76 L250 92 L210 66 Q186 96 160 100 Q134 96 110 66 Z"/>
+  </g>
+  <path d="M160 100 L160 264" fill="none" stroke="#132f4c" stroke-width="5"/>
+  <path d="M160 108 Q120 130 128 264" fill="none" stroke="#132f4c" stroke-width="5"/>
+  <g fill="#b78a4a">
+    <circle cx="140" cy="150" r="6"/><circle cx="140" cy="185" r="6"/><circle cx="140" cy="220" r="6"/>
+    <circle cx="180" cy="150" r="6"/><circle cx="180" cy="185" r="6"/><circle cx="180" cy="220" r="6"/>
+  </g>
+</svg>

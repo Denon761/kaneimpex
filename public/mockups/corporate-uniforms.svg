@@ -1,0 +1,9 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Corporate blazer mockup">
+  <g stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M110 66 L70 92 L38 76 L16 130 L70 160 L90 146 L90 252 Q90 264 102 264 L218 264 Q230 264 230 252 L230 146 L250 160 L304 130 L282 76 L250 92 L210 66 L160 96 Z" fill="#1c3a5e"/>
+  </g>
+  <path d="M110 66 L160 96 L108 210 Z" fill="#16324f"/>
+  <path d="M210 66 L160 96 L212 210 Z" fill="#16324f"/>
+  <path d="M160 96 L148 138 L160 150 L172 138 Z" fill="#ffffff"/>
+  <path d="M160 150 L150 264 L170 264 Z" fill="#b78a4a"/>
+</svg>
