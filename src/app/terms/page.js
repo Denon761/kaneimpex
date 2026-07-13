@@ -7,11 +7,11 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms & Conditions" updated="July 8, 2026">
-      <p className="text-navy/70">
-        These Terms &amp; Conditions govern your use of the Kaneimpex website and
-        the ordering of our products and services. By using this site or placing
-        an order, you agree to these terms.
+    <LegalPage title="Terms & Conditions" updated="July 13, 2026">
+      <p className="text-sm leading-relaxed text-navy/65">
+        These Terms &amp; Conditions govern your use of the Kaneimpex website
+        (kenimpex.co.uk) and the ordering of our products and services. By
+        using this site or placing an order, you agree to these terms.
       </p>
 
       <Block heading="1. About Us">
@@ -36,7 +36,12 @@ export default function TermsPage() {
           As products are custom-manufactured to your specifications, approved
           samples and artwork are considered final. Please review all details
           carefully before approval, as custom orders generally cannot be cancelled
-          once production has begun.
+          once production has begun. Returns, replacements and refunds are handled
+          under our{" "}
+          <a href="/returns" className="font-semibold text-brand">
+            Returns &amp; Refunds Policy
+          </a>
+          .
         </p>
       </Block>
 
@@ -66,16 +71,17 @@ export default function TermsPage() {
 
       <Block heading="7. Governing Law">
         <p>
-          These terms are governed by the laws of the jurisdiction in which
-          Kaneimpex operates, and any disputes will be subject to its courts.
+          These terms are governed by the laws of England and Wales, and any
+          disputes will be subject to the exclusive jurisdiction of the courts
+          of England and Wales.
         </p>
       </Block>
 
       <Block heading="8. Contact">
         <p>
           Questions about these terms? Email{" "}
-          <a href="mailto:sales@kaneimpex.com" className="font-semibold text-brand">
-            sales@kaneimpex.com
+          <a href="mailto:info@kenimpex.co.uk" className="font-semibold text-brand">
+            info@kenimpex.co.uk
           </a>
           .
         </p>

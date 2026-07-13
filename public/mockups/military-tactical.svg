@@ -1,12 +1,12 @@
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tactical jacket mockup">
-  <g stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+  <g stroke="#2b4562" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
     <path d="M110 66 L70 92 L38 76 L16 130 L70 160 L90 146 L90 252 Q90 264 102 264 L218 264 Q230 264 230 252 L230 146 L250 160 L304 130 L282 76 L250 92 L210 66 Q186 96 160 100 Q134 96 110 66 Z" fill="#5c6b4a"/>
   </g>
   <g fill="#454f37">
     <circle cx="120" cy="150" r="12"/><circle cx="205" cy="140" r="10"/>
     <circle cx="180" cy="205" r="14"/><circle cx="130" cy="220" r="10"/>
   </g>
-  <line x1="160" y1="100" x2="160" y2="264" stroke="#132f4c" stroke-width="6"/>
-  <rect x="104" y="168" width="42" height="34" rx="3" fill="none" stroke="#132f4c" stroke-width="6"/>
-  <rect x="174" y="168" width="42" height="34" rx="3" fill="none" stroke="#132f4c" stroke-width="6"/>
+  <line x1="160" y1="100" x2="160" y2="264" stroke="#2b4562" stroke-width="6"/>
+  <rect x="104" y="168" width="42" height="34" rx="3" fill="none" stroke="#2b4562" stroke-width="6"/>
+  <rect x="174" y="168" width="42" height="34" rx="3" fill="none" stroke="#2b4562" stroke-width="6"/>
 </svg>

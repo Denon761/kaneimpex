@@ -1,8 +1,8 @@
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Medical scrub mockup">
-  <g fill="#ffffff" stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+  <g fill="#ffffff" stroke="#2b4562" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
     <path d="M110 66 L70 92 L38 76 L16 130 L70 160 L90 146 L90 252 Q90 264 102 264 L218 264 Q230 264 230 252 L230 146 L250 160 L304 130 L282 76 L250 92 L210 66 L160 128 Z"/>
   </g>
-  <path d="M110 66 L160 128 L210 66" fill="none" stroke="#132f4c" stroke-width="8" stroke-linejoin="round"/>
-  <rect x="178" y="176" width="42" height="48" rx="4" fill="none" stroke="#132f4c" stroke-width="6"/>
-  <rect x="90" y="150" width="140" height="9" fill="#b78a4a"/>
+  <path d="M110 66 L160 128 L210 66" fill="none" stroke="#2b4562" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="178" y="176" width="42" height="48" rx="4" fill="none" stroke="#2b4562" stroke-width="6"/>
+  <rect x="90" y="150" width="140" height="9" fill="#4c7fe1"/>
 </svg>

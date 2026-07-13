@@ -1,86 +1,171 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Asterisk, ArrowUpRight, ArrowUp } from "lucide-react";
 import { industries } from "../data/industries";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-white/80">
-      <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        {/* Brand */}
+    <footer className="bg-navy-900 text-white/70">
+      {/* CTA row */}
+      <div className="container-wide flex flex-wrap items-end justify-between gap-x-16 gap-y-8 py-14 lg:py-16">
         <div>
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-md bg-gold text-lg font-black text-white">
-              K
-            </span>
-            <span className="text-xl font-black tracking-tight text-white">
-              KANE<span className="text-gold-light">IMPEX</span>
-            </span>
-          </Link>
-          <p className="mt-4 text-sm leading-relaxed">
-            B2B manufacturer &amp; supplier of custom sportswear and uniforms.
-            Premium quality, custom designs and reliable worldwide delivery.
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
+            <span className="h-1.5 w-1.5 bg-brand" />
+            Have a project in mind?
           </p>
+          <h2 className="mt-4 max-w-xl text-3xl leading-[1.1] text-white sm:text-4xl">
+            Let&apos;s kit out your team{" "}
+            <span className="text-white/40">— from first sample to final delivery.</span>
+          </h2>
         </div>
-
-        {/* Industries */}
-        <div>
-          <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-            Industries
-          </h4>
-          <ul className="space-y-2 text-sm">
-            {industries.slice(0, 6).map((ind) => (
-              <li key={ind.slug}>
-                <Link href={`/industries/${ind.slug}`} className="hover:text-gold-light">
-                  {ind.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div>
-          <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-            Company
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link href="/request-a-quote" className="hover:text-gold-light">Request a Quote</Link></li>
-            <li><Link href="/shipping" className="hover:text-gold-light">Shipping Policy</Link></li>
-            <li><Link href="/privacy-policy" className="hover:text-gold-light">Privacy Policy</Link></li>
-            <li><Link href="/terms" className="hover:text-gold-light">Terms &amp; Conditions</Link></li>
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-            Get in Touch
-          </h4>
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-start gap-3">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />
-              <span>sales@kaneimpex.com</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />
-              <span>+1 (000) 000-0000</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Globe className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />
-              <span>Reliable worldwide delivery</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" />
-              <span>Global manufacturing &amp; supply</span>
-            </li>
-          </ul>
-        </div>
+        <Link
+          href="/request-a-quote"
+          className="flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-sm font-semibold text-navy transition hover:bg-white/90"
+        >
+          Request a Quote
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white">
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
+        </Link>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/60 sm:flex-row">
+        <div className="container-wide grid gap-x-10 gap-y-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="flex items-center gap-2">
+              <Asterisk className="h-7 w-7 text-brand" strokeWidth={2.5} />
+              <span className="text-lg font-semibold tracking-tight text-white">
+                Kaneimpex<sup className="text-[9px] font-bold text-white/50">®</sup>
+              </span>
+            </Link>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
+              B2B manufacturer &amp; supplier of custom sportswear and uniforms.
+              Premium quality, custom designs and reliable worldwide delivery.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["OEM", "ODM", "Private Label"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/15 px-3 py-1.5 text-[11px] font-semibold text-white/60"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Industries */}
+          <div>
+            <p className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
+              <span className="h-1.5 w-1.5 bg-brand" />
+              Industries
+            </p>
+            <ul className="space-y-2.5 text-sm">
+              {industries.slice(0, 6).map((ind) => (
+                <li key={ind.slug}>
+                  <Link
+                    href={`/industries/${ind.slug}`}
+                    className="group inline-flex items-center gap-1.5 text-white/50 transition hover:text-white"
+                  >
+                    {ind.name}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-1.5 font-semibold text-brand-light transition hover:text-white"
+                >
+                  All Products <ArrowUpRight className="h-3 w-3" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <p className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
+              <span className="h-1.5 w-1.5 bg-brand" />
+              Company
+            </p>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/#about" className="text-white/50 transition hover:text-white">About Us</Link></li>
+              <li><Link href="/#services" className="text-white/50 transition hover:text-white">Services</Link></li>
+              <li><Link href="/request-a-quote" className="text-white/50 transition hover:text-white">Request a Quote</Link></li>
+              <li><Link href="/shipping" className="text-white/50 transition hover:text-white">Shipping Policy</Link></li>
+              <li><Link href="/returns" className="text-white/50 transition hover:text-white">Returns &amp; Refunds</Link></li>
+              <li><Link href="/privacy-policy" className="text-white/50 transition hover:text-white">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-white/50 transition hover:text-white">Terms &amp; Conditions</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
+              <span className="h-1.5 w-1.5 bg-brand" />
+              Get in Touch
+            </p>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a
+                  href="mailto:info@kenimpex.co.uk"
+                  className="flex items-start gap-3 text-white/50 transition hover:text-white"
+                >
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  info@kenimpex.co.uk
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+447587579766"
+                  className="flex items-start gap-3 text-white/50 transition hover:text-white"
+                >
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                  (+44) 07587 579766
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-white/50">
+                <Globe className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                Reliable worldwide delivery
+              </li>
+              <li className="flex items-start gap-3 text-white/50">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                Global manufacturing &amp; supply
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Oversized studio-style wordmark — SVG so it always stretches the full footer width */}
+      <div className="container-wide select-none pt-6" aria-hidden="true">
+        <svg viewBox="0 0 1200 150" className="w-full">
+          <text
+            x="600"
+            y="128"
+            textAnchor="middle"
+            textLength="1200"
+            lengthAdjust="spacingAndGlyphs"
+            fontSize="160"
+            className="fill-white/[0.06] font-sans font-semibold tracking-tight"
+          >
+            KANEIMPEX
+          </text>
+        </svg>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="container-wide flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 sm:flex-row">
           <p>© {new Date().getFullYear()} Kaneimpex. All rights reserved.</p>
-          <p>Custom Uniform &amp; Sportswear Manufacturing</p>
+          <p className="hidden sm:block">Custom Uniform &amp; Sportswear Manufacturing</p>
+          <a
+            href="#"
+            className="group inline-flex items-center gap-1.5 font-semibold text-white/60 transition hover:text-white"
+          >
+            Back to top
+            <ArrowUp className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
     </footer>

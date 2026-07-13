@@ -7,11 +7,11 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="July 8, 2026">
-      <p className="text-navy/70">
+    <LegalPage title="Privacy Policy" updated="July 13, 2026">
+      <p className="text-sm leading-relaxed text-navy/65">
         Kaneimpex (“we”, “us”, “our”) respects your privacy. This policy explains
-        what information we collect when you use our website or request a quote,
-        how we use it, and the choices you have.
+        what information we collect when you use kenimpex.co.uk or request a
+        quote, how we use it, and the choices you have.
       </p>
 
       <Block heading="1. Information We Collect">
@@ -60,17 +60,20 @@ export default function PrivacyPage() {
 
       <Block heading="6. Your Rights">
         <p>
-          You may request access to, correction of, or deletion of your personal
-          data, subject to applicable law. To exercise these rights, contact us at
-          the address below.
+          Under UK data protection law (including UK GDPR), you may request
+          access to, correction of, or deletion of your personal data, object to
+          or restrict its processing, and request data portability. To exercise
+          these rights, contact us at the address below. You also have the right
+          to lodge a complaint with the Information Commissioner&apos;s Office
+          (ICO).
         </p>
       </Block>
 
       <Block heading="7. Contact Us">
         <p>
           For any privacy questions, email us at{" "}
-          <a href="mailto:privacy@kaneimpex.com" className="font-semibold text-brand">
-            privacy@kaneimpex.com
+          <a href="mailto:info@kenimpex.co.uk" className="font-semibold text-brand">
+            info@kenimpex.co.uk
           </a>
           .
         </p>

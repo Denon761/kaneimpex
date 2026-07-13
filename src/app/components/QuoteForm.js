@@ -55,7 +55,7 @@ export default function QuoteForm() {
     return (
       <div className="rounded-2xl border border-brand/20 bg-brand/5 p-10 text-center">
         <CheckCircle2 className="mx-auto h-14 w-14 text-brand" />
-        <h2 className="mt-4 text-2xl font-black text-navy">Thank you!</h2>
+        <h2 className="mt-4 text-2xl text-navy">Thank you!</h2>
         <p className="mt-2 text-navy/70">
           Your quote request has been received. Our team will get back to you
           within 1 business day
@@ -129,7 +129,7 @@ export default function QuoteForm() {
             value={form.phone}
             onChange={update}
             className={inputCls}
-            placeholder="+1 000 000 0000"
+            placeholder="+44 0000 000000"
           />
         </Field>
         <Field label="Country">
@@ -138,7 +138,7 @@ export default function QuoteForm() {
             value={form.country}
             onChange={update}
             className={inputCls}
-            placeholder="United States"
+            placeholder="United Kingdom"
           />
         </Field>
         <Field label="Industry">
@@ -213,7 +213,7 @@ export default function QuoteForm() {
 }
 
 const inputCls =
-  "w-full rounded-lg border border-navy/15 bg-white px-4 py-2.5 text-sm text-navy outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20";
+  "w-full rounded-xl border border-navy/15 bg-white px-4 py-2.5 text-sm text-navy outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20";
 
 function Field({ label, required, children, className = "" }) {
   return (

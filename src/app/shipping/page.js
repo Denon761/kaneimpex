@@ -66,8 +66,8 @@ export default function ShippingPage() {
       <Block heading="7. Questions">
         <p>
           For shipping enquiries, contact{" "}
-          <a href="mailto:sales@kaneimpex.com" className="font-semibold text-brand">
-            sales@kaneimpex.com
+          <a href="mailto:info@kenimpex.co.uk" className="font-semibold text-brand">
+            info@kenimpex.co.uk
           </a>
           .
         </p>

@@ -6,33 +6,40 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Ink black — headings, hero and dark bands. Light steps are the
+        // warm off-white page tints.
         navy: {
-          DEFAULT: "#132f4c",
-          50: "#f5f7fa",
-          100: "#e6ebf1",
-          200: "#cdd7e3",
-          700: "#173a5e",
-          800: "#0f2843",
-          900: "#0b1f33",
+          DEFAULT: "#141416",
+          50: "#f7f6f3",
+          100: "#efeeea",
+          200: "#e2e0d9",
+          700: "#2c2c30",
+          800: "#1c1c1f",
+          900: "#111113",
         },
-        // brand aliases navy so the whole UI reads as one navy system.
+        // Signal red — icons, links, CTAs and accent marks.
         brand: {
-          DEFAULT: "#132f4c",
-          light: "#8aa6c8",
-          dark: "#0d2440",
-        },
-        // Muted classic gold, used sparingly for premium accents.
-        gold: {
-          DEFAULT: "#b78a4a",
-          light: "#d0ad72",
+          DEFAULT: "#e8442e",
+          light: "#ff7a5f",
+          dark: "#c5321f",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-urbanist)", "system-ui", "sans-serif"],
+        heading: ["var(--font-urbanist)", "system-ui", "sans-serif"],
       },
       container: {
         center: true,
         padding: "1rem",
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 35s linear infinite",
       },
     },
   },

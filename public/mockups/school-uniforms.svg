@@ -1,10 +1,10 @@
 <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="School uniform shirt mockup">
-  <g fill="#ffffff" stroke="#132f4c" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+  <g fill="#ffffff" stroke="#2b4562" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
     <path d="M110 66 L70 92 L38 76 L16 130 L70 160 L90 146 L90 252 Q90 264 102 264 L218 264 Q230 264 230 252 L230 146 L250 160 L304 130 L282 76 L250 92 L210 66 Q186 96 160 100 Q134 96 110 66 Z"/>
   </g>
-  <path d="M132 74 L160 104 L120 118 Z" fill="#ffffff" stroke="#132f4c" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M188 74 L160 104 L200 118 Z" fill="#ffffff" stroke="#132f4c" stroke-width="6" stroke-linejoin="round"/>
-  <path d="M160 104 L150 150 L160 168 L170 150 Z" fill="#132f4c"/>
-  <path d="M158 168 L150 240 L170 240 L162 168 Z" fill="#b78a4a"/>
-  <line x1="160" y1="104" x2="160" y2="264" stroke="#132f4c" stroke-width="4"/>
+  <path d="M132 74 L160 104 L120 118 Z" fill="#ffffff" stroke="#2b4562" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M188 74 L160 104 L200 118 Z" fill="#ffffff" stroke="#2b4562" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M160 104 L150 150 L160 168 L170 150 Z" fill="#2b4562"/>
+  <path d="M158 168 L150 240 L170 240 L162 168 Z" fill="#4c7fe1"/>
+  <line x1="160" y1="104" x2="160" y2="264" stroke="#2b4562" stroke-width="4"/>
 </svg>

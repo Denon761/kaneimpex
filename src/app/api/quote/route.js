@@ -6,8 +6,8 @@ import { NextResponse } from "next/server";
 // If SMTP is not configured, the lead is logged and the request still
 // succeeds with delivered:false, so the site works before creds are set.
 
-const BRAND = "#132f4c";
-const GOLD = "#b78a4a";
+const BRAND = "#2b4562";
+const GOLD = "#4c7fe1";
 
 function esc(v = "") {
   return String(v)

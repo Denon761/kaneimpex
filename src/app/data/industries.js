@@ -202,20 +202,99 @@ export function getIndustrySlugs() {
 const U = (id) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&q=70`;
 
-// Free stock photos per industry. First photo is used for cards/heroes;
-// product cards rotate through the whole list for variety.
+// ── Local product photos (public/products-img) ──────────────────────
+// Real product shots served from /public. Filenames are listed explicitly
+// (via small helpers) because casing/numbering is irregular and production
+// servers are case-sensitive.
+const R9 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const imgs = (folder, prefix, nums = R9) =>
+  nums.map((n) => `/products-img/${folder}/${prefix}-0${n}_s.jpg`);
+
+const localPhotos = {
+  "base-ball": imgs("base-ball", "Baseball-uni"),
+  "basketball": imgs("basketball", "Basketball-Uni"),
+  "cricket-wear": imgs("cricket-wear", "Cricket-uni"),
+  "hockey-wear": imgs("hockey-wear", "Icehoackey-jersey"),
+  "hoodies": [
+    ...imgs("hoodies", "Hoodies", [1, 2, 3, 4]),
+    "/products-img/hoodies/hoodies-05_s.jpg",
+    ...imgs("hoodies", "Hoodies", [6, 7, 8, 9]),
+  ],
+  "polo-shirts": imgs("polo-shirts", "Polo-shirt"),
+  "rugby": imgs("rugby", "Rugby-Uniform"),
+  "soccer": [
+    ...imgs("soccer", "Soccer-uni"),
+    "/products-img/soccer/Soccer-uni-11_s.jpg",
+  ],
+  "sweat-shirts": imgs("sweat-shirts", "Sweat-shirt"),
+  "t-shirts": imgs("t-shirts", "T-shirt"),
+  "track-suit": imgs("track-suit", "Track-suits"),
+  "trousers": imgs("trousers", "Trosers"),
+  "usa-football": [
+    ...imgs("usa-football", "Football-Uniform", [1, 2, 3, 4, 5]),
+    "/products-img/usa-football/football-uniform-06_s.jpg",
+    ...imgs("usa-football", "Football-Uniform", [7, 8, 9]),
+  ],
+  "varsity-jackets": imgs("varsity-jackets", "Varsity-jackets"),
+  "volleyball": imgs("volleyball", "Volleyball-uniform"),
+};
+
+// Product name → local photo category. Products listed here always use
+// their own real photos on the cards.
+const productPhotoCategory = {
+  "Team Uniforms": "usa-football",
+  "Soccer Uniforms": "soccer",
+  "Basketball Uniforms": "basketball",
+  "Cricket Uniforms": "cricket-wear",
+  "Rugby Uniforms": "rugby",
+  "Volleyball Uniforms": "volleyball",
+  "Tennis Apparel": "polo-shirts",
+  "Gym Wear": "t-shirts",
+  "Tracksuits": "track-suit",
+  "Sublimated Sportswear": "hockey-wear",
+  "Corporate Polo Shirts": "polo-shirts",
+  "Corporate Shirts": "t-shirts",
+  "School Trousers": "trousers",
+  "School Sweaters": "sweat-shirts",
+  "School Blazers": "varsity-jackets",
+  "PE Uniforms": "t-shirts",
+};
+
+// Industry-level pools of local photos. The first photo becomes the
+// industry card/hero image; unmapped products rotate through the pool.
+const industryLocalPools = {
+  "sportswear": [
+    localPhotos["soccer"][0],
+    localPhotos["basketball"][0],
+    localPhotos["usa-football"][0],
+    localPhotos["cricket-wear"][0],
+    localPhotos["rugby"][0],
+    localPhotos["volleyball"][0],
+    localPhotos["track-suit"][0],
+    localPhotos["hoodies"][0],
+  ],
+  "school-uniforms": [
+    localPhotos["varsity-jackets"][0],
+    localPhotos["sweat-shirts"][0],
+    localPhotos["trousers"][0],
+    localPhotos["polo-shirts"][0],
+  ],
+};
+
+// Free stock photos per industry (used where we have no local shots yet).
+// First photo is used for cards/heroes; product cards rotate for variety.
 const industryPhotos = {
-  "sportswear": ["1577212017184-80cc0da11082", "1552066379-e7bfd22155c5"],
   "work-uniforms": ["1589939705384-5185137a7f0f", "1567954970774-58d6aa6c50dc"],
   "medical-uniforms": ["1621862912856-0909fb7f14b7", "1594824476967-48c8b964273f"],
   "hospitality-uniforms": ["1759521296013-559479e2a891", "1574966740637-12c84035a4f2"],
   "corporate-uniforms": ["1507679799987-c73779587ccf", "1515736076039-a3ca66043b27"],
-  "school-uniforms": ["1569173675610-42c361a86e37", "1612229693210-30e16029c415"],
   "military-tactical": ["1608396941316-ea89219bd56e", "1578241030078-01b38ededda4"],
   "accessories": ["1588850561407-ed78c282e89b", "1521369909029-2afed882baee"],
 };
 
 function photosFor(ind) {
+  const local = industryLocalPools[ind.slug];
+  if (local && local.length) return local;
   return (industryPhotos[ind.slug] || []).map(U);
 }
 
@@ -236,9 +315,13 @@ export function industryBanner(ind) {
   return ind.banner || industryImage(ind);
 }
 
-// Image for a single product card (rotates through the industry photos).
+// Image for a single product card. A product with its own local photo
+// category always shows a real shot of that product type; otherwise it
+// rotates through the industry photo pool.
 export function productImage(product, ind, index = 0) {
   if (product.image) return product.image;
+  const cat = productPhotoCategory[product.name];
+  if (cat && localPhotos[cat]) return localPhotos[cat][0];
   const p = photosFor(ind);
   if (p.length) return p[index % p.length];
   return ind.image || mockupFor(ind);

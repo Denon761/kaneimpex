@@ -1,16 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Plus } from "lucide-react";
 import {
   industries,
   getIndustry,
   getIndustrySlugs,
-  industryImage,
   industryBanner,
   mockupFor,
 } from "../../data/industries";
-import Icon from "../../components/Icon";
 import ProductCard from "../../components/ProductCard";
+import IndustryCard from "../../components/IndustryCard";
 import SmartImage from "../../components/SmartImage";
 
 export function generateStaticParams() {
@@ -36,60 +35,62 @@ export default async function IndustryPage({ params }) {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-navy-900 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_55%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-        <div className="container-x relative py-16 lg:py-24">
-          <Link
-            href="/#industries"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" /> All Industries
-          </Link>
+      {/* HERO — dark rounded panel, same frame as the homepage */}
+      <section className="container-wide pt-3 sm:pt-5">
+        <div className="relative overflow-hidden rounded-3xl bg-navy-900 text-white">
+          <SmartImage
+            src={industryBanner(industry)}
+            fallback={mockupFor(industry)}
+            alt={industry.name}
+            eager
+            className="absolute inset-0 h-full w-full scale-105 object-cover opacity-40 blur-[2px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/70 to-navy-900/40" />
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="max-w-2xl">
-              <span className="grid h-16 w-16 place-items-center rounded-md border border-white/15 bg-white/5">
-                <Icon name={industry.icon} className="h-8 w-8 text-gold-light" strokeWidth={1.5} />
-              </span>
-              <h1 className="mt-6 text-4xl font-black tracking-tight sm:text-5xl">
-                {industry.name}
-              </h1>
-              <p className="mt-3 text-xl font-medium text-gold-light">
+          <div className="relative flex min-h-[480px] flex-col justify-between px-6 py-10 sm:px-10 lg:min-h-[540px] lg:px-14 lg:py-12">
+            <div>
+              <Link
+                href="/#industries"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/60 transition hover:text-white"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> All Industries
+              </Link>
+
+              <p className="eyebrow eyebrow-light mt-10">
                 {industry.tagline}
               </p>
-              <p className="mt-5 max-w-xl leading-relaxed text-white/65">{industry.description}</p>
-              <Link
-                href={`/request-a-quote?industry=${encodeURIComponent(industry.name)}`}
-                className="btn-light mt-8"
-              >
-                Request a Quote <ArrowRight className="h-4 w-4" />
-              </Link>
+              <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+                {industry.name}
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65">
+                {industry.description}
+              </p>
             </div>
 
-            {/* Banner mockup + highlights */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
-              <div className="h-56 overflow-hidden rounded-lg border border-white/10 bg-navy-50">
-                <SmartImage
-                  src={industryBanner(industry)}
-                  fallback={mockupFor(industry)}
-                  alt={industry.name}
-                  className="h-full w-full object-cover"
-                />
+            <div className="mt-14 flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
+              {/* Highlights as process markers */}
+              <div className="grid max-w-xl gap-x-8 gap-y-3 sm:grid-cols-2">
+                {industry.highlights.map((h) => (
+                  <span
+                    key={h}
+                    className="flex items-start gap-1.5 text-sm font-medium text-white/80"
+                  >
+                    <Plus className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" strokeWidth={2.5} />
+                    {h}
+                  </span>
+                ))}
               </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 p-6">
-                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-gold-light">
-                  Why choose us
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {industry.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-3 text-sm text-white/80">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold-light" strokeWidth={1.75} />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/request-a-quote?industry=${encodeURIComponent(industry.name)}`}
+                  className="btn-primary"
+                >
+                  Request a Quote <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <Link href="/products" className="btn-light">
+                  All Products <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -98,25 +99,21 @@ export default async function IndustryPage({ params }) {
 
       {/* PRODUCTS */}
       <section className="section">
-        <div className="container-x">
-          <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
             <div>
               <p className="eyebrow">Our Range</p>
-              <h2 className="mt-2 text-3xl font-black text-navy">
-                {industry.name} Products
+              <h2 className="mt-4 max-w-2xl text-3xl leading-[1.15] sm:text-4xl">
+                {industry.name} Products{" "}
+                <span className="text-navy/35">— every item fully customizable.</span>
               </h2>
-              <p className="mt-2 max-w-xl text-navy/60">
-                Every product is fully customizable. Click{" "}
-                <span className="font-semibold text-brand">Request a Quote</span>{" "}
-                on any item to get started.
-              </p>
             </div>
-            <span className="rounded-md border border-navy/10 bg-navy-50 px-4 py-2 text-sm font-semibold text-navy/70">
-              {industry.products.length} products
-            </span>
+            <p className="dotted-rule pb-2 text-xs font-bold uppercase tracking-wider text-navy/60">
+              {String(industry.products.length).padStart(2, "0")} Products
+            </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {industry.products.map((product, i) => (
               <ProductCard
                 key={product.name}
@@ -129,33 +126,28 @@ export default async function IndustryPage({ params }) {
         </div>
       </section>
 
-      {/* OTHER INDUSTRIES */}
-      <section className="section bg-navy-50">
-        <div className="container-x">
-          <h2 className="text-2xl font-black text-navy">Explore other industries</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* OTHER INDUSTRIES — dark band, same cards as the homepage */}
+      <section className="bg-navy-900 py-16 text-white sm:py-20">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+            <div>
+              <p className="eyebrow eyebrow-light">Explore more</p>
+              <h2 className="mt-4 text-3xl sm:text-4xl">
+                Other <span className="text-brand">Industries</span>
+              </h2>
+            </div>
+            <Link
+              href="/#industries"
+              className="group flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/60 transition hover:text-white"
+            >
+              View All
+              <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((ind) => (
-              <Link
-                key={ind.slug}
-                href={`/industries/${ind.slug}`}
-                className="card-hover group overflow-hidden rounded-lg border border-navy/10 bg-white"
-              >
-                <div className="h-28 overflow-hidden border-b border-navy/5 bg-navy-50">
-                  <SmartImage
-                    src={industryImage(ind)}
-                    fallback={mockupFor(ind)}
-                    alt={ind.name}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-navy group-hover:text-gold">{ind.name}</h3>
-                  <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-navy">
-                    View
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                  </span>
-                </div>
-              </Link>
+              <IndustryCard key={ind.slug} industry={ind} />
             ))}
           </div>
         </div>

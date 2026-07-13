@@ -1,12 +1,12 @@
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist" });
 
 export const metadata = {
-  metadataBase: new URL("https://kaneimpex.com"),
+  metadataBase: new URL("https://kenimpex.co.uk"),
   title: {
     default: "Kaneimpex — Custom Uniform & Sportswear Manufacturer",
     template: "%s | Kaneimpex",
@@ -30,7 +30,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={urbanist.variable}>
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>
