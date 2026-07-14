@@ -2,9 +2,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import SmartImage from "./SmartImage";
 
-// Product-category card in the same image-cover style as IndustryCard /
-// ProductCard: photo fills the rounded card, content sits on a bottom
-// gradient, whole card links to the category page.
+// Product-category card: photo fills the rounded card, content sits on a
+// bottom gradient, whole card links to the category page.
 export default function CategoryCard({ category }) {
   return (
     <Link

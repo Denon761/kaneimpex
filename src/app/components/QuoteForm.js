@@ -3,7 +3,18 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Send, Loader2 } from "lucide-react";
-import { industries } from "../data/industries";
+// Industry options for the quote form — a plain list so buyers can still
+// tell us their sector even though the industry pages were removed.
+const industryOptions = [
+  "Sportswear",
+  "Work Uniforms",
+  "Medical Uniforms",
+  "Hospitality Uniforms",
+  "Corporate Uniforms",
+  "School Uniforms",
+  "Military & Tactical",
+  "Accessories",
+];
 
 export default function QuoteForm() {
   const params = useSearchParams();
@@ -149,9 +160,9 @@ export default function QuoteForm() {
             className={inputCls}
           >
             <option value="">Select an industry</option>
-            {industries.map((i) => (
-              <option key={i.slug} value={i.name}>
-                {i.name}
+            {industryOptions.map((name) => (
+              <option key={name} value={name}>
+                {name}
               </option>
             ))}
           </select>

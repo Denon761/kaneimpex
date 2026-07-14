@@ -3,9 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
-import { industries } from "../data/industries";
-
-const productCount = industries.reduce((n, ind) => n + ind.products.length, 0);
+import { productCategories, totalProductCount } from "../data/products";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -34,35 +32,38 @@ export default function Header() {
             onMouseEnter={() => setDrop(true)}
             onMouseLeave={() => setDrop(false)}
           >
-            <button className="flex items-center gap-1 text-[13px] font-medium text-navy/70 hover:text-navy">
-              Industries <ChevronDown className="h-3.5 w-3.5" />
-            </button>
+            <Link
+              href="/#products"
+              className="relative flex items-start gap-1 text-[13px] font-medium text-navy/70 hover:text-navy"
+            >
+              Products
+              <span className="rounded-full bg-brand px-1.5 py-px text-[9px] font-bold leading-tight text-white">
+                {totalProductCount}
+              </span>
+              <ChevronDown className="mt-0.5 h-3.5 w-3.5" />
+            </Link>
             {drop && (
-              <div className="absolute left-1/2 top-full w-[520px] -translate-x-1/2 pt-3">
+              <div className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3">
                 <div className="grid grid-cols-2 gap-1 rounded-2xl border border-navy/10 bg-white p-3 shadow-xl">
-                  {industries.map((ind) => (
+                  {productCategories.map((cat) => (
                     <Link
-                      key={ind.slug}
-                      href={`/industries/${ind.slug}`}
+                      key={cat.slug}
+                      href={`/products/${cat.slug}`}
                       className="rounded-xl px-3 py-2 text-sm font-medium text-navy/70 hover:bg-navy-50 hover:text-brand"
                     >
-                      {ind.name}
+                      {cat.name}
                     </Link>
                   ))}
+                  <Link
+                    href="/#products"
+                    className="rounded-xl px-3 py-2 text-sm font-semibold text-brand hover:bg-navy-50"
+                  >
+                    All Products →
+                  </Link>
                 </div>
               </div>
             )}
           </div>
-
-          <Link
-            href="/products"
-            className="relative flex items-start gap-0.5 text-[13px] font-medium text-navy/70 hover:text-navy"
-          >
-            Products
-            <span className="rounded-full bg-brand px-1.5 py-px text-[9px] font-bold leading-tight text-white">
-              {productCount}
-            </span>
-          </Link>
           <Link href="/#services" className="text-[13px] font-medium text-navy/70 hover:text-navy">
             Services
           </Link>
@@ -101,20 +102,20 @@ export default function Header() {
             <Link href="/" onClick={() => setOpen(false)} className="py-2 font-semibold">
               Home
             </Link>
-            <Link href="/products" onClick={() => setOpen(false)} className="py-2 font-semibold">
+            <Link href="/#products" onClick={() => setOpen(false)} className="py-2 font-semibold">
               Products
             </Link>
             <p className="pt-2 text-xs font-bold uppercase tracking-wider text-navy/40">
-              Industries
+              Categories
             </p>
-            {industries.map((ind) => (
+            {productCategories.map((cat) => (
               <Link
-                key={ind.slug}
-                href={`/industries/${ind.slug}`}
+                key={cat.slug}
+                href={`/products/${cat.slug}`}
                 onClick={() => setOpen(false)}
                 className="py-1.5 pl-2 text-sm text-navy/80"
               >
-                {ind.name}
+                {cat.name}
               </Link>
             ))}
             <Link

@@ -5,7 +5,7 @@ export default function LegalPage({ title, updated, eyebrow = "Legal", children 
     <>
       <section className="container-wide pt-3 sm:pt-5">
         <div className="relative overflow-hidden rounded-3xl bg-navy-900 text-white">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,68,46,0.18),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.25),transparent_55%)]" />
           <div className="relative px-6 py-14 sm:px-10 lg:px-14 lg:py-16">
             <p className="eyebrow eyebrow-light">{eyebrow}</p>
             <h1 className="mt-5 max-w-3xl text-3xl leading-[1.1] sm:text-4xl lg:text-5xl">

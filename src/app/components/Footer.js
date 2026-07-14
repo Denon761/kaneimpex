@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Globe, Asterisk, ArrowUpRight, ArrowUp } from "lucide-react";
-import { industries } from "../data/industries";
+import { productCategories } from "../data/products";
 
 export default function Footer() {
   return (
@@ -54,27 +54,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Industries */}
+          {/* Products */}
           <div>
             <p className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white">
               <span className="h-1.5 w-1.5 bg-brand" />
-              Industries
+              Products
             </p>
             <ul className="space-y-2.5 text-sm">
-              {industries.slice(0, 6).map((ind) => (
-                <li key={ind.slug}>
+              {productCategories.slice(0, 6).map((cat) => (
+                <li key={cat.slug}>
                   <Link
-                    href={`/industries/${ind.slug}`}
+                    href={`/products/${cat.slug}`}
                     className="group inline-flex items-center gap-1.5 text-white/50 transition hover:text-white"
                   >
-                    {ind.name}
+                    {cat.name}
                     <ArrowUpRight className="h-3 w-3 opacity-0 transition group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
-                  href="/products"
+                  href="/#products"
                   className="inline-flex items-center gap-1.5 font-semibold text-brand-light transition hover:text-white"
                 >
                   All Products <ArrowUpRight className="h-3 w-3" />

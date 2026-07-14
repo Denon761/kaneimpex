@@ -6,22 +6,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Ink black — headings, hero and dark bands. Light steps are the
-        // warm off-white page tints.
+        // Deep navy blue — headings, hero and dark bands. Light steps are
+        // the cool off-white page tints.
         navy: {
-          DEFAULT: "#141416",
-          50: "#f7f6f3",
-          100: "#efeeea",
-          200: "#e2e0d9",
-          700: "#2c2c30",
-          800: "#1c1c1f",
-          900: "#111113",
+          DEFAULT: "#14294b",
+          50: "#f5f7fa",
+          100: "#eaeef5",
+          200: "#d8e0ec",
+          700: "#1c3a6b",
+          800: "#16305a",
+          900: "#0e2141",
         },
-        // Signal red — icons, links, CTAs and accent marks.
+        // Royal blue accent — icons, links, CTAs and accent marks.
         brand: {
-          DEFAULT: "#e8442e",
-          light: "#ff7a5f",
-          dark: "#c5321f",
+          DEFAULT: "#2563eb",
+          light: "#6ea8ff",
+          dark: "#1d4ed8",
         },
       },
       fontFamily: {

@@ -1,212 +1,263 @@
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
-  Asterisk,
+  Award,
+  BadgeCheck,
+  BookOpen,
+  Building2,
+  ChevronRight,
+  Factory,
   Globe,
+  HelpCircle,
   Mail,
+  Newspaper,
+  PenTool,
   Phone,
-  Plus,
+  Settings,
+  ShieldCheck,
+  Trophy,
+  Truck,
+  Users,
 } from "lucide-react";
-import { industries, industryImage, mockupFor } from "./data/industries";
+import { productCategories } from "./data/products";
 import SmartImage from "./components/SmartImage";
-import IndustryCard from "./components/IndustryCard";
 
-const services = [
-  "OEM Manufacturing",
-  "ODM Manufacturing",
-  "Private Label",
-  "Custom Design",
-  "Pattern Making",
-  "Sample Development",
-  "Sublimation Printing",
-  "Screen Printing",
-  "Embroidery",
-  "Heat Transfer Printing",
-  "Woven Labels",
-  "Custom Packaging",
-];
+// ── Page data (mirrors the reference flyer layout) ──────────────────
 
-const fabrics = [
-  "Polyester", "Cotton", "Cotton/Poly Blend", "Spandex", "Nylon",
-  "Recycled Fabric", "Moisture Wicking Fabric", "Anti-Bacterial Fabric",
-];
-
-const served = [
-  "Sports Brands", "Wholesalers", "Importers", "Distributors", "Retail Chains",
-  "Schools & Universities", "Sports Clubs", "Government Departments", "NGOs", "Corporate Companies",
-];
-
-const processSteps = ["Design", "Manufacture", "Deliver"];
-
-const totalProducts = industries.reduce((n, ind) => n + ind.products.length, 0);
-
-const stats = [
+const heroHighlights = [
   {
-    value: `${industries.length}`,
-    label: "Industries covered",
-    desc: "From sportswear and medical to corporate, school and tactical uniforms.",
+    icon: ShieldCheck,
+    title: "Premium Quality",
+    sub: "International Standards",
   },
   {
-    value: `${Math.floor(totalProducts / 10) * 10}+`,
-    label: "Product lines",
-    desc: "Every single item fully customizable and available for bulk B2B orders.",
+    icon: PenTool,
+    title: "Custom Designs",
+    sub: "Bring Your Ideas to Life",
   },
   {
-    value: `${services.length}+`,
-    label: "Manufacturing services",
-    desc: "OEM, ODM, private label, sublimation, embroidery and more under one roof.",
+    icon: Globe,
+    title: "Global Supply",
+    sub: "Reliable Worldwide Delivery",
   },
   {
-    value: "100%",
-    label: "Custom made",
-    desc: "Designed around your brand — fabrics, fits, colors, labels and packaging.",
+    icon: Users,
+    title: "B2B Solutions",
+    sub: "Built for Your Business",
   },
 ];
 
-// Industries featured in the portrait image strip.
-const stripSlugs = ["sportswear", "medical-uniforms", "hospitality-uniforms", "military-tactical"];
+const resources = [
+  { icon: Building2, label: "About Us", href: "/about" },
+  { icon: Factory, label: "Factory", href: "/factory" },
+  { icon: ShieldCheck, label: "Quality Control", href: "/quality-control" },
+  { icon: Award, label: "Certifications", href: "/certifications" },
+  { icon: HelpCircle, label: "FAQ", href: "/faq" },
+  { icon: Newspaper, label: "Blog", href: "/blog" },
+  { icon: BookOpen, label: "Catalog", href: "/#products" },
+  { icon: Phone, label: "Contact Us", href: "/contact" },
+  { icon: Mail, label: "Request a Quote", href: "/request-a-quote" },
+];
+
+const promises = [
+  { icon: Trophy, title: "High Quality Products", sub: "Built to Perform" },
+  { icon: Settings, title: "Custom Solutions", sub: "Designed for Your Brand" },
+  { icon: Truck, title: "On-Time Delivery", sub: "Worldwide Shipping" },
+  { icon: BadgeCheck, title: "Competitive Prices", sub: "Best Value for Your Business" },
+];
+
 
 export default function Home() {
-  const stripIndustries = stripSlugs
-    .map((slug) => industries.find((i) => i.slug === slug))
-    .filter(Boolean);
-
   return (
     <>
-      {/* HERO — dark rounded panel over the page background */}
-      <section className="container-wide pt-3 sm:pt-5">
-        <div className="relative overflow-hidden rounded-3xl bg-navy-900 text-white">
-          {/* Background image */}
-          <SmartImage
-            src="https://images.unsplash.com/photo-1560796952-f1c9b838544c?auto=format&fit=crop&w=1800&q=70"
-            fallback="/banners/hero.svg"
-            alt="Garment stitching and uniform manufacturing"
-            eager
-            className="absolute inset-0 h-full w-full scale-105 object-cover opacity-50 blur-[2px]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-navy-900/30" />
+      {/* HERO — full-width dark navy band with headline + product shots */}
+      <section className="relative overflow-hidden bg-navy-900 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,116,212,0.35),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.18),transparent_45%)]" />
 
-          <div className="relative flex min-h-[560px] flex-col justify-between px-6 py-10 sm:px-10 lg:min-h-[640px] lg:px-14 lg:py-12">
+        <div className="container-wide relative grid items-center gap-x-10 gap-y-10 py-10 lg:grid-cols-[1.1fr_1fr] lg:py-12">
+            {/* Headline */}
             <div>
               <p className="eyebrow eyebrow-light">
-                B2B Sportswear &amp; Uniform Manufacturer
+                Kaneimpex — Est. Manufacturer &amp; Exporter
               </p>
-              <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-                Custom Sportswear &amp; Uniforms, Made for Growing Brands.
+              <h1 className="mt-6 whitespace-nowrap text-3xl font-bold uppercase leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
+                Sportswear &amp; Uniforms
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65">
-                From sublimated team kits to medical scrubs and workwear — we
-                design, manufacture and deliver premium custom apparel in bulk,
-                with your branding on every stitch.
+              <p className="mt-4 text-base font-semibold uppercase tracking-[0.14em] text-white/80 sm:text-lg">
+                B2B Manufacturer &amp; Supplier
               </p>
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-white/60">
+                From sublimated team kits to medical scrubs, workwear and
+                tactical gear — we design, manufacture and deliver premium
+                custom apparel in bulk, with your branding on every stitch.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/request-a-quote" className="btn-primary">
+                  Request a Quote <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <Link href="/#products" className="btn-light">
+                  View Products <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
 
-            <div className="mt-16 flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
-              {/* Process markers */}
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-                {processSteps.map((step) => (
-                  <span
-                    key={step}
-                    className="flex items-center gap-1.5 text-sm font-medium text-white/80"
-                  >
-                    <Plus className="h-4 w-4 text-brand-light" strokeWidth={2.5} />
-                    {step}
-                  </span>
-                ))}
-              </div>
+            {/* Product banner — composed uniform shot over the navy band */}
+            <Link href="/#products" className="group block">
+              <SmartImage
+                src="/banners/bannerimage.png"
+                fallback="/banners/hero.svg"
+                alt="Custom basketball, rugby, soccer and American football uniforms"
+                eager
+                className="mx-auto w-full max-w-xl object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.45)] transition duration-500 group-hover:scale-[1.03] lg:ml-auto lg:mr-0"
+              />
+            </Link>
+        </div>
+      </section>
 
-              {/* Right block: supporting copy + CTAs */}
-              <div className="max-w-sm">
-                <p className="text-base font-medium leading-snug text-white/90 sm:text-lg">
-                  Team Kits, Scrubs, Workwear, Corporate, School &amp; Tactical
-                  Uniforms
-                  <span className="text-white/60"> — for teams, brands and organizations worldwide</span>
+      {/* FEATURE BADGES — strip directly under the hero */}
+      <section className="border-b border-navy/10">
+        <div className="container-wide grid grid-cols-2 gap-x-6 gap-y-8 py-8 lg:grid-cols-4">
+          {heroHighlights.map((h) => (
+            <div key={h.title} className="flex items-center gap-4">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-navy/15 bg-navy-50 text-navy">
+                <h.icon className="h-5 w-5" strokeWidth={1.75} />
+              </span>
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wide text-navy">
+                  {h.title}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <Link href="/request-a-quote" className="btn-primary">
-                    Request a Quote <ArrowUpRight className="h-4 w-4" />
+                <p className="mt-0.5 text-xs text-navy/55">{h.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PRODUCT GRID — catalog categories in the flyer card style */}
+      <section id="products" className="bg-navy-50 py-12 sm:py-16">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4 pb-8">
+            <div>
+              <p className="eyebrow">Our Products</p>
+              <h2 className="mt-3 text-2xl font-bold uppercase tracking-tight text-navy sm:text-3xl">
+                What We Manufacture
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-navy/55">
+              Every product is made to order — your fabrics, colours, branding
+              and packaging, produced in bulk for B2B supply.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {productCategories.map((cat) => (
+              <div
+                key={cat.slug}
+                className="card-hover flex flex-col rounded-2xl border border-navy/10 bg-white p-5"
+              >
+                {/* Card header */}
+                <Link
+                  href={`/products/${cat.slug}`}
+                  className="catalog-head group justify-between"
+                >
+                  <h3 className="text-sm font-bold uppercase tracking-wide text-navy group-hover:text-brand">
+                    {cat.name}
+                  </h3>
+                  <span className="shrink-0 rounded-full bg-navy-50 px-2.5 py-1 text-[10px] font-bold text-navy/60">
+                    {cat.products.length} Styles
+                  </span>
+                </Link>
+
+                {/* Bullets on the left, photo flush to the card's right edge */}
+                <div className="mt-4 flex min-h-[260px] flex-1 items-center gap-3">
+                  <ul className="flex-1 space-y-2">
+                    {cat.features.map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-1.5 text-[13px] font-medium leading-snug text-navy/70"
+                      >
+                        <ChevronRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={`/products/${cat.slug}`}
+                    className="group -mr-5 block w-48 shrink-0 self-stretch sm:w-56"
+                  >
+                    <SmartImage
+                      src={cat.cover}
+                      fallback="/banners/hero.svg"
+                      alt={cat.name}
+                      className="h-full w-full object-contain object-right transition duration-500 group-hover:scale-105"
+                    />
                   </Link>
-                  <Link href="/products" className="btn-light">
-                    View Products <ArrowUpRight className="h-4 w-4" />
+                </div>
+
+                {/* Card footer actions */}
+                <div className="mt-4 flex items-center gap-2 border-t border-navy/10 pt-4">
+                  <Link
+                    href={`/request-a-quote?product=${encodeURIComponent(cat.name)}`}
+                    className="btn-primary flex-1 px-4 py-2.5 text-xs shadow-none"
+                  >
+                    Request a Quote <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    href={`/products/${cat.slug}`}
+                    className="btn-outline px-4 py-2.5 text-xs"
+                  >
+                    View
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            ))}
 
-      {/* TRUSTED-BY MARQUEE */}
-      <section className="mt-5 border-y border-navy/10">
-        <div className="container-wide flex items-center gap-6 py-5">
-          <div className="hidden shrink-0 items-center gap-3 md:flex">
-            <Asterisk className="h-6 w-6 text-navy" strokeWidth={1.5} />
-            <p className="max-w-[200px] text-[11px] font-bold uppercase leading-tight tracking-wider text-navy">
-              We supply brands &amp; organizations worldwide
-            </p>
-          </div>
-          <div className="relative flex-1 overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent" />
-            <div className="flex w-max animate-marquee">
-              {[...served, ...served].map((name, i) => (
-                <span
-                  key={`${name}-${i}`}
-                  className="mx-6 flex items-center gap-4 whitespace-nowrap text-sm font-bold uppercase tracking-wider text-navy/35"
-                >
-                  {name}
-                  <Asterisk className="h-4 w-4 text-brand/50" strokeWidth={2} />
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHO WE ARE — big statement */}
-      <section id="about" className="section">
-        <div className="container-wide">
-          <p className="eyebrow">Who we are</p>
-          <div className="mt-6 flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
-            <h2 className="max-w-3xl text-3xl leading-[1.15] sm:text-4xl lg:text-[2.75rem]">
-              We are a B2B manufacturer of custom sportswear &amp; uniforms{" "}
-              <span className="text-navy/35">
-                — from team kits and medical scrubs to corporate, school and
-                tactical apparel.
-              </span>
-            </h2>
+            {/* CTA card completes the 4-column grid */}
             <Link
               href="/request-a-quote"
-              className="dotted-rule group flex items-center gap-2 pb-2 text-xs font-bold uppercase tracking-wider text-navy hover:text-brand"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-navy-900 p-6 text-white"
             >
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              About Kaneimpex
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,116,212,0.4),transparent_60%)]" />
+              <div className="relative">
+                <p className="eyebrow eyebrow-light">Custom Orders</p>
+                <h3 className="mt-4 text-xl font-bold leading-snug">
+                  Don&apos;t see what you need?
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/60">
+                  We manufacture to your exact spec — send us your design,
+                  fabric and quantity requirements for a tailored quote.
+                </p>
+              </div>
+              <span className="relative mt-6 flex items-center justify-between text-[11px] font-bold uppercase tracking-wider">
+                Request a Quote
+                <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 transition group-hover:border-brand group-hover:bg-brand">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </span>
             </Link>
           </div>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-navy/55 sm:text-base">
-            We design, produce and deliver garments end-to-end — performance
-            fabrics, sublimation printing, embroidery, OEM / ODM and private
-            label production — with reliable bulk delivery for teams, brands,
-            schools and organizations worldwide.
-          </p>
 
-          {/* Portrait image strip */}
-          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {stripIndustries.map((ind) => (
+        </div>
+      </section>
+
+      {/* RESOURCES — quick icon links */}
+      <section id="about" className="py-12 sm:py-16">
+        <div className="container-wide">
+          <p className="eyebrow mx-auto w-fit">Resources</p>
+          <div className="mt-8 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-5 lg:grid-cols-9">
+            {resources.map((r) => (
               <Link
-                key={ind.slug}
-                href={`/industries/${ind.slug}`}
-                className="group relative overflow-hidden rounded-2xl bg-navy-100"
+                key={r.label}
+                href={r.href}
+                className="group flex flex-col items-center gap-3 text-center"
               >
-                <SmartImage
-                  src={industryImage(ind)}
-                  fallback={mockupFor(ind)}
-                  alt={ind.name}
-                  className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-navy backdrop-blur">
-                  {ind.name}
+                <span className="grid h-14 w-14 place-items-center rounded-2xl border border-navy/15 bg-navy-50 text-navy transition group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                  <r.icon className="h-6 w-6" strokeWidth={1.5} />
+                </span>
+                <span className="text-xs font-semibold text-navy/75 transition group-hover:text-navy">
+                  {r.label}
                 </span>
               </Link>
             ))}
@@ -214,153 +265,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BY THE NUMBERS */}
-      <section className="pb-16 sm:pb-20 lg:pb-24">
-        <div className="container-wide">
-          <p className="eyebrow">By the numbers</p>
-          <div className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p className="dotted-rule pb-4 text-5xl font-semibold tracking-tight text-navy lg:text-6xl">
-                  {s.value}
-                </p>
-                <p className="mt-4 text-sm font-bold text-navy">{s.label}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-navy/55">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRIES — dark section */}
-      <section id="industries" className="bg-navy-900 py-16 text-white sm:py-20 lg:py-24">
-        <div className="container-wide">
-          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
-            <div>
-              <p className="eyebrow eyebrow-light">Industries</p>
-              <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.75rem]">
-                What We <span className="text-brand">Manufacture</span>
-              </h2>
-            </div>
-            <p className="max-w-xs text-sm leading-relaxed text-white/55">
-              We craft high-quality custom uniforms and apparel for every
-              industry — fully customizable and built for bulk B2B ordering.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((ind) => (
-              <IndustryCard key={ind.slug} industry={ind} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES + FABRICS */}
-      <section id="services" className="section">
-        <div className="container-wide grid gap-x-16 gap-y-12 lg:grid-cols-[1.2fr_1fr]">
-          <div>
-            <p className="eyebrow">Capabilities</p>
-            <h2 className="mt-4 text-3xl sm:text-4xl">Manufacturing Services</h2>
-            <div className="mt-8 grid gap-x-10 sm:grid-cols-2">
-              {services.map((s, i) => (
-                <div
-                  key={s}
-                  className="dotted-rule flex items-baseline gap-4 py-3.5"
-                >
-                  <span className="text-[11px] font-bold text-brand">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm font-semibold text-navy">{s}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="eyebrow">Materials</p>
-            <h2 className="mt-4 text-3xl sm:text-4xl">Fabrics We Work With</h2>
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {fabrics.map((f) => (
-                <span
-                  key={f}
-                  className="rounded-full border border-navy/15 px-4 py-2 text-xs font-semibold text-navy/75"
-                >
-                  {f}
-                </span>
-              ))}
-              <span className="rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white">
-                &amp; More
+      {/* PROMISE BAND — navy strip above the footer */}
+      <section className="bg-navy-900 text-white">
+        <div className="container-wide grid grid-cols-1 gap-x-6 gap-y-6 border-b border-white/10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+          {promises.map((p) => (
+            <div key={p.title} className="flex items-center gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/20 text-white">
+                <p.icon className="h-5 w-5" strokeWidth={1.75} />
               </span>
-            </div>
-            <div className="mt-8 overflow-hidden rounded-2xl bg-navy-100">
-              <SmartImage
-                src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=900&q=70"
-                fallback="/banners/hero.svg"
-                alt="Rolls of coloured fabric"
-                className="aspect-[16/10] w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA — dark statement panel with photo backdrop */}
-      <section className="pb-16 sm:pb-20 lg:pb-24">
-        <div className="container-wide">
-          <div className="relative overflow-hidden rounded-3xl bg-navy-900 text-white">
-            <SmartImage
-              src="https://images.unsplash.com/photo-1591534577302-1696205bb2c4?auto=format&fit=crop&w=1600&q=70"
-              fallback="/banners/hero.svg"
-              alt="Embroidery and garment production machinery"
-              className="absolute inset-0 h-full w-full scale-105 object-cover opacity-30 blur-[2px]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/80 to-navy-900/50" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,68,46,0.2),transparent_55%)]" />
-
-            <div className="relative px-6 py-16 text-center sm:px-12 lg:py-24">
-              <p className="eyebrow eyebrow-light mx-auto w-fit">Get started</p>
-              <h2 className="mx-auto mt-6 max-w-3xl text-3xl leading-[1.1] sm:text-4xl lg:text-5xl">
-                Ready to build your{" "}
-                <span className="text-brand">custom uniform</span> program?
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/60 sm:text-base">
-                Tell us what you need — quantities, fabrics, branding — and our
-                team will get back to you with a tailored quote and samples.
-              </p>
-
-              <div className="mt-9 flex flex-wrap justify-center gap-3">
-                <Link href="/request-a-quote" className="btn-primary">
-                  Request a Quote <ArrowUpRight className="h-4 w-4" />
-                </Link>
-                <Link href="/products" className="btn-light">
-                  Browse Catalog <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-
-              {/* Direct contact row */}
-              <div className="mx-auto mt-12 flex max-w-2xl flex-wrap items-center justify-center gap-x-10 gap-y-4 border-t border-white/10 pt-8 text-sm">
-                <a
-                  href="mailto:info@kenimpex.co.uk"
-                  className="flex items-center gap-2.5 text-white/70 transition hover:text-white"
-                >
-                  <Mail className="h-4 w-4 text-brand-light" />
-                  info@kenimpex.co.uk
-                </a>
-                <a
-                  href="tel:+447587579766"
-                  className="flex items-center gap-2.5 text-white/70 transition hover:text-white"
-                >
-                  <Phone className="h-4 w-4 text-brand-light" />
-                  (+44) 07587 579766
-                </a>
-                <span className="flex items-center gap-2.5 text-white/70">
-                  <Globe className="h-4 w-4 text-brand-light" />
-                  Worldwide delivery
-                </span>
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wide">{p.title}</p>
+                <p className="mt-0.5 text-xs text-white/55">{p.sub}</p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </>

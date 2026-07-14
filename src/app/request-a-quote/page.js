@@ -73,7 +73,7 @@ export default function RequestQuotePage() {
 
             {/* Direct contact card */}
             <div className="relative overflow-hidden rounded-2xl bg-navy-900 p-6 text-white">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,68,46,0.2),transparent_55%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.3),transparent_55%)]" />
               <div className="relative">
                 <p className="eyebrow eyebrow-light">Prefer to talk?</p>
                 <p className="mt-4 text-sm leading-relaxed text-white/60">

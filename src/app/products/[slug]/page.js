@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Plus } from "lucide-react";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  Check,
+  ChevronRight,
+  ClipboardList,
+  Package,
+  Palette,
+  Truck,
+} from "lucide-react";
 import {
   productCategories,
   getProductCategory,
@@ -23,6 +32,30 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Ordering steps shown on every product page.
+const orderSteps = [
+  {
+    icon: ClipboardList,
+    title: "Share Your Requirements",
+    desc: "Style codes, quantities, sizes, fabrics and branding.",
+  },
+  {
+    icon: Palette,
+    title: "Design & Sampling",
+    desc: "We prepare artwork and a pre-production sample for approval.",
+  },
+  {
+    icon: Package,
+    title: "Bulk Production",
+    desc: "Full production run with in-line quality control.",
+  },
+  {
+    icon: Truck,
+    title: "Worldwide Delivery",
+    desc: "Packed to your spec and shipped to your door.",
+  },
+];
+
 export default async function ProductCategoryPage({ params }) {
   const { slug } = await params;
   const category = getProductCategory(slug);
@@ -32,139 +65,197 @@ export default async function ProductCategoryPage({ params }) {
     .filter((c) => c.slug !== category.slug)
     .slice(0, 4);
 
+  const quoteHref = `/request-a-quote?industry=${encodeURIComponent(category.name)}`;
+
   return (
     <>
-      {/* HERO — dark rounded panel, same frame as the homepage */}
-      <section className="container-wide pt-3 sm:pt-5">
-        <div className="relative overflow-hidden rounded-3xl bg-navy-900 text-white">
-          <SmartImage
-            src={category.cover}
-            fallback="/banners/hero.svg"
-            alt={category.name}
-            eager
-            className="absolute inset-0 h-full w-full scale-105 object-cover opacity-40 blur-[2px]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/70 to-navy-900/40" />
+      {/* OVERVIEW — full-width navy band: info left, product photo right */}
+      <section className="relative overflow-hidden bg-navy-900 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,116,212,0.35),transparent_55%)]" />
 
-          <div className="relative flex min-h-[460px] flex-col justify-between px-6 py-10 sm:px-10 lg:min-h-[520px] lg:px-14 lg:py-12">
-            <div>
-              <Link
-                href="/products"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/60 transition hover:text-white"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> All Products
+        <div className="container-wide relative grid items-center gap-x-14 gap-y-10 py-10 lg:grid-cols-[1.15fr_1fr] lg:py-14">
+          <div>
+            {/* Breadcrumb */}
+            <nav className="flex flex-wrap items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-white/50">
+              <Link href="/" className="transition hover:text-white">
+                Home
               </Link>
+              <ChevronRight className="h-3 w-3" />
+              <Link href="/#products" className="transition hover:text-white">
+                Products
+              </Link>
+              <ChevronRight className="h-3 w-3" />
+              <span className="text-white/80">{category.name}</span>
+            </nav>
 
-              <p className="eyebrow eyebrow-light mt-10">Product Category</p>
-              <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-                {category.name}
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65">
-                {category.description}
-              </p>
-            </div>
+            <h1 className="mt-6 text-3xl font-bold uppercase leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
+              {category.name}
+            </h1>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/65">
+              {category.description}
+            </p>
 
-            <div className="mt-14 flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
-              {/* Manufacturing highlights as markers */}
-              <div className="grid max-w-xl gap-x-8 gap-y-3 sm:grid-cols-2">
-                {category.features.map((f) => (
-                  <span
-                    key={f}
-                    className="flex items-start gap-1.5 text-sm font-medium text-white/80"
-                  >
-                    <Plus className="mt-0.5 h-4 w-4 shrink-0 text-brand-light" strokeWidth={2.5} />
-                    {f}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href={`/request-a-quote?industry=${encodeURIComponent(category.name)}`}
-                  className="btn-primary"
+            {/* Feature checklist */}
+            <ul className="mt-7 grid max-w-xl gap-x-8 gap-y-2.5 sm:grid-cols-2">
+              {category.features.map((f) => (
+                <li
+                  key={f}
+                  className="flex items-start gap-2 text-sm font-medium text-white/85"
                 >
-                  Request a Quote <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
+                  <span className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            {/* Quick facts */}
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {[
+                `${category.products.length} Ready Designs`,
+                "100% Customizable",
+                "Bulk B2B Orders",
+              ].map((m) => (
+                <span
+                  key={m}
+                  className="rounded-full border border-white/20 px-3.5 py-1.5 text-[11px] font-semibold text-white/75"
+                >
+                  {m}
+                </span>
+              ))}
             </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href={quoteHref} className="btn-primary">
+                Request a Quote <ArrowUpRight className="h-4 w-4" />
+              </Link>
+              <Link href="/#products" className="btn-light">
+                All Products <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Cover photo on a white card */}
+          <div className="overflow-hidden rounded-3xl bg-white shadow-2xl shadow-navy-900/50">
+            <SmartImage
+              src={category.cover}
+              fallback="/banners/hero.svg"
+              alt={category.name}
+              eager
+              className="aspect-[4/4.5] w-full object-contain p-6"
+            />
           </div>
         </div>
       </section>
 
-      {/* PRODUCT GRID */}
-      <section className="section">
+      {/* STYLES GRID */}
+      <section className="bg-navy-50 py-12 sm:py-16">
         <div className="container-wide">
-          <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4 pb-8">
             <div>
               <p className="eyebrow">Available Designs</p>
-              <h2 className="mt-4 max-w-2xl text-3xl leading-[1.15] sm:text-4xl">
-                {category.name} Styles{" "}
-                <span className="text-navy/35">
-                  — reference any style code in your enquiry.
-                </span>
+              <h2 className="mt-3 text-2xl font-bold uppercase tracking-tight text-navy sm:text-3xl">
+                {category.name} Styles
               </h2>
             </div>
-            <p className="dotted-rule pb-2 text-xs font-bold uppercase tracking-wider text-navy/60">
-              {String(category.products.length).padStart(2, "0")} Designs
+            <p className="max-w-sm text-sm leading-relaxed text-navy/55">
+              Every design below is a starting point — reference its style code
+              in your enquiry and we&apos;ll adapt colours, fabrics and branding
+              to your brand.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {category.products.map((product) => (
-              <Link
+              <div
                 key={product.styleCode}
-                href={`/request-a-quote?product=${encodeURIComponent(product.name)}&industry=${encodeURIComponent(category.name)}`}
-                className="group relative block overflow-hidden rounded-2xl bg-white ring-1 ring-navy/10"
+                className="card-hover group flex flex-col rounded-2xl border border-navy/10 bg-white p-4"
               >
-                <SmartImage
-                  src={product.image}
-                  alt={product.name}
-                  className="aspect-[3/4] w-full object-contain p-6 pb-14 transition duration-500 group-hover:scale-105"
-                />
-
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-transparent" />
-
-                {/* Style code badge */}
-                <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 font-mono text-[10px] font-semibold tracking-wide text-navy backdrop-blur">
-                  {product.styleCode}
-                </span>
-
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                  <div className="flex items-end justify-between gap-3">
-                    <div>
-                      <h3 className="text-base font-semibold text-white">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-white/65 line-clamp-2">
-                        {product.desc}
-                      </p>
-                      <p className="mt-2.5 text-[10px] font-bold uppercase tracking-wider text-white/80">
-                        Request a Quote
-                      </p>
-                    </div>
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/25 text-white transition group-hover:border-brand group-hover:bg-brand">
-                      <ArrowUpRight className="h-4 w-4" />
-                    </span>
-                  </div>
+                <div className="relative overflow-hidden rounded-xl">
+                  <span className="absolute left-2.5 top-2.5 z-10 rounded-full bg-navy-900/85 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wide text-white backdrop-blur">
+                    {product.styleCode}
+                  </span>
+                  <SmartImage
+                    src={product.image}
+                    fallback="/banners/hero.svg"
+                    alt={product.name}
+                    className="aspect-[3/4] w-full object-contain p-3 transition duration-500 group-hover:scale-105"
+                  />
                 </div>
-              </Link>
+
+                <div className="mt-3 flex flex-1 flex-col border-t border-navy/10 pt-3">
+                  <h3 className="text-sm font-bold text-navy">{product.name}</h3>
+                  <p className="mt-1 flex-1 text-xs leading-relaxed text-navy/55 line-clamp-2">
+                    {product.desc}
+                  </p>
+                  <Link
+                    href={`/request-a-quote?product=${encodeURIComponent(product.name)}&industry=${encodeURIComponent(category.name)}`}
+                    className="btn-primary mt-3 w-full px-4 py-2.5 text-xs shadow-none"
+                  >
+                    Request a Quote <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW ORDERING WORKS */}
+      <section className="py-12 sm:py-16">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4 pb-8">
+            <div>
+              <p className="eyebrow">Simple Process</p>
+              <h2 className="mt-3 text-2xl font-bold uppercase tracking-tight text-navy sm:text-3xl">
+                How Ordering Works
+              </h2>
+            </div>
+            <span className="flex items-center gap-2 text-sm font-semibold text-navy/60">
+              <BadgeCheck className="h-4 w-4 text-brand" />
+              No obligation — quotes are free
+            </span>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {orderSteps.map((s, i) => (
+              <div
+                key={s.title}
+                className="rounded-2xl border border-navy/10 bg-white p-5"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-full bg-navy-50 text-navy">
+                    <s.icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <span className="text-3xl font-bold text-navy/10">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-sm font-bold uppercase tracking-wide text-navy">
+                  {s.title}
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-navy/55">
+                  {s.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* OTHER CATEGORIES — dark band */}
-      <section className="bg-navy-900 py-16 text-white sm:py-20">
+      <section className="bg-navy-900 py-14 text-white sm:py-16">
         <div className="container-wide">
           <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
             <div>
               <p className="eyebrow eyebrow-light">Explore more</p>
-              <h2 className="mt-4 text-3xl sm:text-4xl">
+              <h2 className="mt-3 text-2xl font-bold uppercase tracking-tight sm:text-3xl">
                 Other <span className="text-brand">Categories</span>
               </h2>
             </div>
             <Link
-              href="/products"
+              href="/#products"
               className="group flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/60 transition hover:text-white"
             >
               View All
@@ -172,7 +263,7 @@ export default async function ProductCategoryPage({ params }) {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((cat) => (
               <CategoryCard key={cat.slug} category={cat} />
             ))}
