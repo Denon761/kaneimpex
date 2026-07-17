@@ -44,7 +44,7 @@ const CATALOG = [
     ],
     descs: [
       "Sleeveless jersey and long-cut shorts in quick-dry mesh.",
-      "Reversible practice set — two colourways in one garment.",
+      "Reversible practice set with two colourways in one garment.",
       "Sublimated game set with custom trims and numbering.",
     ],
     files: [
@@ -59,7 +59,7 @@ const CATALOG = [
     singular: "Baseball Uniform",
     code: "BSB",
     description:
-      "Classic and modern baseball uniforms — full-button, two-button and pullover jerseys with matching pants. Built from durable double-knit fabrics that hold their colour season after season.",
+      "Classic and modern baseball uniforms. Full-button, two-button and pullover jerseys with matching pants, built from durable double-knit fabrics that hold their colour season after season.",
     features: [
       "Full-button, two-button & pullover styles",
       "Durable double-knit polyester",
@@ -87,7 +87,7 @@ const CATALOG = [
     features: [
       "4-way stretch compression fit",
       "Reinforced stress-point stitching",
-      "Full sublimation — no cracked prints",
+      "Full sublimation, no cracked prints",
       "Youth & adult cuts",
     ],
     descs: [
@@ -131,7 +131,7 @@ const CATALOG = [
     singular: "Rugby Uniform",
     code: "RGB",
     description:
-      "Rugby jerseys and shorts built for the scrum — reinforced seams, heavyweight knit fabrics and a fit that stays put through eighty minutes of contact.",
+      "Rugby jerseys and shorts built for the scrum, with reinforced seams, heavyweight knit fabrics and a fit that stays put through eighty minutes of contact.",
     features: [
       "Reinforced twin-needle seams",
       "Heavyweight 250+ GSM knit",
@@ -188,7 +188,7 @@ const CATALOG = [
     ],
     descs: [
       "Air-knit game jersey with stitched twill crest.",
-      "Fully sublimated design — colours that never peel.",
+      "Fully sublimated design with colours that never peel.",
       "Practice jersey built for daily ice time.",
     ],
     files: [
@@ -227,7 +227,7 @@ const CATALOG = [
     singular: "Hoodie",
     code: "HDY",
     description:
-      "Heavyweight fleece hoodies for teams, brands and merch lines. Pullover and zip styles with print, embroidery or applique branding — cut and sewn to your spec.",
+      "Heavyweight fleece hoodies for teams, brands and merch lines. Pullover and zip styles with print, embroidery or applique branding, cut and sewn to your spec.",
     features: [
       "280–400 GSM brushed fleece",
       "Pullover & full-zip styles",
@@ -275,7 +275,7 @@ const CATALOG = [
     singular: "T-Shirt",
     code: "TSH",
     description:
-      "Custom t-shirts from lightweight performance tees to heavyweight streetwear blanks. Cotton, poly and blends — cut, sewn and finished to your specification.",
+      "Custom t-shirts from lightweight performance tees to heavyweight streetwear blanks. Cotton, poly and blends, all cut, sewn and finished to your specification.",
     features: [
       "Cotton, polyester & blend fabrics",
       "150–240 GSM weight range",
@@ -347,7 +347,7 @@ const CATALOG = [
     singular: "Trousers",
     code: "TRS",
     description:
-      "Training and leisure trousers cut for movement — joggers, track pants and warm-up bottoms in knits and wovens, finished with your branding.",
+      "Training and leisure trousers cut for movement. Joggers, track pants and warm-up bottoms in knits and wovens, finished with your branding.",
     features: [
       "Knit & woven fabric options",
       "Tapered, straight & relaxed fits",
@@ -365,6 +365,249 @@ const CATALOG = [
       "Trosers-07_s.jpg", "Trosers-08_s.jpg", "Trosers-09_s.jpg",
     ],
   },
+
+  // ── Uniform categories without photo sets yet. Drop images into
+  // /public/products-img/<slug>/ and list the filenames to publish styles.
+  {
+    slug: "medical-scrubs",
+    name: "Medical Scrubs",
+    singular: "Scrub Set",
+    code: "MSC",
+    description:
+      "Medical scrubs engineered for long shifts. Antimicrobial, easy-care poly-cotton blends in unisex and tailored fits, with custom embroidery for hospitals and clinics.",
+    features: [
+      "Antimicrobial, easy-care fabrics",
+      "Unisex & tailored fits",
+      "Multiple pocket configurations",
+      "Hospital logo embroidery",
+    ],
+    descs: [
+      "V-neck scrub top with matching drawstring pants.",
+      "Stretch-fabric set for all-day comfort.",
+      "Colour-coded sets for departmental teams.",
+    ],
+    files: [],
+  },
+  {
+    slug: "lab-coats",
+    name: "Lab Coats",
+    singular: "Lab Coat",
+    code: "LBC",
+    description:
+      "Professional lab coats for medical, laboratory and industrial use. Crisp poly-cotton twill with custom lengths, closures and embroidered branding.",
+    features: [
+      "Poly-cotton twill construction",
+      "Knee & mid-thigh lengths",
+      "Button or snap closures",
+      "Name & department embroidery",
+    ],
+    descs: [
+      "Classic knee-length coat in crisp white twill.",
+      "Snap-front style for quick changes.",
+      "Tailored fit with embroidered name and title.",
+    ],
+    files: [],
+  },
+  {
+    slug: "nurse-uniforms",
+    name: "Nurse Uniforms",
+    singular: "Nurse Uniform",
+    code: "NRS",
+    description:
+      "Smart, durable nurse uniforms and tunics. Breathable fabrics that stand up to industrial laundering, delivered in your facility's colour scheme.",
+    features: [
+      "Industrial-launder safe fabrics",
+      "Tunic & dress styles",
+      "Contrast piping & trims",
+      "Facility colour matching",
+    ],
+    descs: [
+      "Classic tunic with contrast piping and side vents.",
+      "Breathable dress style for ward comfort.",
+      "Colour-coded set for role identification.",
+    ],
+    files: [],
+  },
+  {
+    slug: "patient-gowns",
+    name: "Patient Gowns",
+    singular: "Patient Gown",
+    code: "PTG",
+    description:
+      "Comfortable, dignified patient gowns for hospitals and care facilities. Soft, launder-resistant fabrics with secure tie or snap closures.",
+    features: [
+      "Soft, skin-friendly fabrics",
+      "Tie & snap closure options",
+      "Back & side opening styles",
+      "Bulk hospital supply",
+    ],
+    descs: [
+      "Back-opening gown with secure tie closures.",
+      "Snap-shoulder style for easy access care.",
+      "Soft brushed fabric for patient comfort.",
+    ],
+    files: [],
+  },
+  {
+    slug: "chef-coats",
+    name: "Chef Coats",
+    singular: "Chef Coat",
+    code: "CHF",
+    description:
+      "Classic and modern chef coats built for hot kitchens. Breathable cotton twills with double-breasted fronts, custom buttons and embroidered branding.",
+    features: [
+      "Breathable cotton twill",
+      "Double-breasted & zip fronts",
+      "Vented backs & underarms",
+      "Custom buttons & embroidery",
+    ],
+    descs: [
+      "Double-breasted classic in breathable twill.",
+      "Modern zip-front coat with vented back.",
+      "Short-sleeve style for high-heat kitchens.",
+    ],
+    files: [],
+  },
+  {
+    slug: "aprons",
+    name: "Aprons",
+    singular: "Apron",
+    code: "APN",
+    description:
+      "Bib, waist and bistro aprons for restaurants, cafes and retail. Durable canvas, denim and poly-cotton with custom pockets and branding.",
+    features: [
+      "Canvas, denim & poly-cotton",
+      "Bib, waist & bistro styles",
+      "Adjustable neck & waist straps",
+      "Screen print & embroidery",
+    ],
+    descs: [
+      "Full bib apron in heavyweight waxed canvas.",
+      "Waist apron with triple pocket layout.",
+      "Bistro-length style in stain-resistant fabric.",
+    ],
+    files: [],
+  },
+  {
+    slug: "restaurant-uniforms",
+    name: "Restaurant Uniforms",
+    singular: "Restaurant Uniform",
+    code: "RST",
+    description:
+      "Front-of-house uniforms that match your brand. Shirts, waistcoats and service wear in coordinated colours for restaurants, hotels and cafes.",
+    features: [
+      "Coordinated front-of-house sets",
+      "Stain-resistant fabrics",
+      "Waistcoats, shirts & service wear",
+      "Brand colour matching",
+    ],
+    descs: [
+      "Service shirt and waistcoat in house colours.",
+      "Stain-resistant front-of-house set.",
+      "Coordinated team look for hotels and cafes.",
+    ],
+    files: [],
+  },
+  {
+    slug: "corporate-shirts",
+    name: "Corporate Shirts",
+    singular: "Corporate Shirt",
+    code: "CPS",
+    description:
+      "Tailored corporate shirts for offices, banks and retail teams. Easy-iron poly-cotton weaves with embroidered logos and consistent sizing across your team.",
+    features: [
+      "Easy-iron poly-cotton weaves",
+      "Men's & women's tailored fits",
+      "Chest & cuff embroidery",
+      "Consistent team sizing",
+    ],
+    descs: [
+      "Easy-iron shirt with embroidered chest logo.",
+      "Tailored fit in classic office colours.",
+      "Team set with consistent sizing and trims.",
+    ],
+    files: [],
+  },
+  {
+    slug: "workwear-coveralls",
+    name: "Coveralls & Workwear",
+    singular: "Coverall",
+    code: "CVR",
+    description:
+      "Heavy-duty coveralls and workwear for industrial teams. Reinforced stitching, tool pockets and durable fabrics that survive the job site.",
+    features: [
+      "Heavy-duty ripstop & twill",
+      "Reinforced stress points",
+      "Multi-tool pocket layouts",
+      "Reflective tape options",
+    ],
+    descs: [
+      "Full coverall with reinforced knees and seat.",
+      "Bib overall in heavy-duty twill.",
+      "Work set with reflective tape detailing.",
+    ],
+    files: [],
+  },
+  {
+    slug: "hi-vis-wear",
+    name: "Hi-Vis Safety Wear",
+    singular: "Hi-Vis Garment",
+    code: "HVS",
+    description:
+      "High-visibility vests, shirts and jackets for site and road crews. Certified fluorescent fabrics with reflective taping and custom branding.",
+    features: [
+      "Certified fluorescent fabrics",
+      "Reflective taping layouts",
+      "Vests, shirts & jackets",
+      "Logo printing available",
+    ],
+    descs: [
+      "Certified hi-vis vest with logo printing.",
+      "Long-sleeve shirt with reflective taping.",
+      "Insulated hi-vis jacket for winter sites.",
+    ],
+    files: [],
+  },
+  {
+    slug: "school-uniforms",
+    name: "School Uniforms",
+    singular: "School Uniform",
+    code: "SCU",
+    description:
+      "Complete school uniform programs: shirts, polos, sweaters and PE kits produced in bulk with embroidered school crests and colours.",
+    features: [
+      "Shirts, polos & knitwear",
+      "Embroidered school crests",
+      "Hard-wearing, easy-care fabrics",
+      "Full size ranges",
+    ],
+    descs: [
+      "Classic shirt and sweater set with school crest.",
+      "Polo and PE kit in school colours.",
+      "Hard-wearing set sized from primary to senior.",
+    ],
+    files: [],
+  },
+  {
+    slug: "security-uniforms",
+    name: "Security Uniforms",
+    singular: "Security Uniform",
+    code: "SEC",
+    description:
+      "Professional security uniforms with a sharp, authoritative look. Durable shirts, trousers and outerwear with badge and epaulette detailing.",
+    features: [
+      "Durable poly-cotton twills",
+      "Badge & epaulette detailing",
+      "Shirts, trousers & outerwear",
+      "All-weather options",
+    ],
+    descs: [
+      "Duty shirt with epaulettes and badge points.",
+      "Cargo trouser in durable twill.",
+      "All-weather jacket with reflective accents.",
+    ],
+    files: [],
+  },
 ];
 
 // ── Public API ──────────────────────────────────────────────────────
@@ -376,7 +619,7 @@ export const productCategories = CATALOG.map((cat) => ({
   name: cat.name,
   description: cat.description,
   features: cat.features,
-  cover: `/products-img/${cat.slug}/${cat.files[0]}`,
+  cover: cat.files.length ? `/products-img/${cat.slug}/${cat.files[0]}` : null,
   products: cat.files.map((file, i) => ({
     styleCode: `KI-${cat.code}-${pad(i + 1)}`,
     name: `${cat.singular} KI-${cat.code}-${pad(i + 1)}`,
@@ -384,6 +627,61 @@ export const productCategories = CATALOG.map((cat) => ({
     image: `/products-img/${cat.slug}/${file}`,
   })),
 }));
+
+// Parent groups shown on the homepage — each card lists its child
+// categories, and the child pages live at /products/<slug>.
+const GROUPS = [
+  {
+    name: "Sports Wear",
+    cover: "/categories/sports-wear.png",
+    slugs: [
+      "soccer", "basketball", "base-ball", "usa-football",
+      "cricket-wear", "rugby", "volleyball", "hockey-wear",
+    ],
+  },
+  {
+    name: "Casual Wear",
+    cover: "/categories/casual-wear.png",
+    slugs: ["hoodies", "sweat-shirts", "t-shirts", "polo-shirts", "varsity-jackets"],
+  },
+  {
+    name: "Training Wear",
+    cover: "/categories/training-wear.png",
+    slugs: ["track-suit", "trousers"],
+  },
+  {
+    name: "Medical Wear",
+    cover: "/categories/medical-wear.png",
+    slugs: ["medical-scrubs", "lab-coats", "nurse-uniforms", "patient-gowns"],
+  },
+  {
+    name: "Hospitality Wear",
+    cover: "/categories/hospitality-wear.png",
+    slugs: ["chef-coats", "aprons", "restaurant-uniforms"],
+  },
+  {
+    name: "Corporate & Work Wear",
+    cover: "/categories/corporate-work-wear.png",
+    slugs: ["corporate-shirts", "workwear-coveralls", "hi-vis-wear"],
+  },
+  {
+    name: "School & Security Wear",
+    cover: "/categories/school-security-wear.png",
+    slugs: ["school-uniforms", "security-uniforms"],
+  },
+];
+
+export const productGroups = GROUPS.map((g) => {
+  const categories = g.slugs
+    .map((slug) => productCategories.find((c) => c.slug === slug))
+    .filter(Boolean);
+  return {
+    name: g.name,
+    categories,
+    cover: g.cover ?? categories.find((c) => c.cover)?.cover ?? null,
+    styleCount: categories.reduce((n, c) => n + c.products.length, 0),
+  };
+});
 
 export function getProductCategory(slug) {
   return productCategories.find((c) => c.slug === slug);

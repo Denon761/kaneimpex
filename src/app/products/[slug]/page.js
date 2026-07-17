@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
   const cat = getProductCategory(slug);
   if (!cat) return {};
   return {
-    title: `${cat.name} Manufacturer — Custom ${cat.name}`,
+    title: `${cat.name} Manufacturer | Custom ${cat.name}`,
     description: cat.description,
   };
 }
@@ -113,7 +113,9 @@ export default async function ProductCategoryPage({ params }) {
             {/* Quick facts */}
             <div className="mt-7 flex flex-wrap gap-2.5">
               {[
-                `${category.products.length} Ready Designs`,
+                category.products.length
+                  ? `${category.products.length} Ready Designs`
+                  : "Made to Order",
                 "100% Customizable",
                 "Bulk B2B Orders",
               ].map((m) => (
@@ -160,11 +162,27 @@ export default async function ProductCategoryPage({ params }) {
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-navy/55">
-              Every design below is a starting point — reference its style code
+              Every design below is a starting point. Reference its style code
               in your enquiry and we&apos;ll adapt colours, fabrics and branding
               to your brand.
             </p>
           </div>
+
+          {category.products.length === 0 && (
+            <div className="rounded-2xl border border-navy/10 bg-white p-8 text-center">
+              <h3 className="text-lg font-bold text-navy">
+                Style gallery coming soon
+              </h3>
+              <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-navy/55">
+                Every {category.name.toLowerCase()} order is made to your
+                specification. Send us your requirements and we&apos;ll share
+                designs, fabrics and samples tailored to your brand.
+              </p>
+              <Link href={quoteHref} className="btn-primary mt-6">
+                Request a Quote <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          )}
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {category.products.map((product) => (
@@ -185,7 +203,7 @@ export default async function ProductCategoryPage({ params }) {
                 </div>
 
                 <div className="mt-3 flex flex-1 flex-col border-t border-navy/10 pt-3">
-                  <h3 className="text-sm font-bold text-navy">{product.name}</h3>
+                  <h3 className="text-sm font-extrabold text-navy-900">{product.name}</h3>
                   <p className="mt-1 flex-1 text-xs leading-relaxed text-navy/55 line-clamp-2">
                     {product.desc}
                   </p>
@@ -214,7 +232,7 @@ export default async function ProductCategoryPage({ params }) {
             </div>
             <span className="flex items-center gap-2 text-sm font-semibold text-navy/60">
               <BadgeCheck className="h-4 w-4 text-brand" />
-              No obligation — quotes are free
+              No obligation, quotes are free
             </span>
           </div>
 

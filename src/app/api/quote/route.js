@@ -139,13 +139,13 @@ export async function POST(req) {
         from,
         to,
         replyTo: email,
-        subject: `New Quote: ${subjectItem} — ${name}`,
+        subject: `New Quote: ${subjectItem} from ${name}`,
         html: adminHtml,
       }),
       transporter.sendMail({
         from,
         to: email,
-        subject: `Your Kaneimpex quote request — ${subjectItem}`,
+        subject: `Your Kaneimpex quote request: ${subjectItem}`,
         html: customerHtml,
       }),
     ]);

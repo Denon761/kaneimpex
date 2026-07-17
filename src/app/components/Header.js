@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight, Search } from "lucide-react";
 import { productCategories, totalProductCount } from "../data/products";
+import ProductSearch from "./ProductSearch";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur">
@@ -44,7 +46,7 @@ export default function Header() {
             </Link>
             {drop && (
               <div className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3">
-                <div className="grid grid-cols-2 gap-1 rounded-2xl border border-navy/10 bg-white p-3 shadow-xl">
+                <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-2xl border border-navy/10 bg-white p-3 shadow-xl">
                   {productCategories.map((cat) => (
                     <Link
                       key={cat.slug}
@@ -73,6 +75,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* Product search (desktop) */}
+          <ProductSearch className="hidden lg:block lg:w-44 xl:w-60" />
+
           {/* CTA pill */}
           <Link
             href="/request-a-quote"
@@ -84,16 +89,40 @@ export default function Header() {
             </span>
           </Link>
 
+          {/* Mobile search toggle */}
+          <button
+            className="lg:hidden"
+            onClick={() => {
+              setSearchOpen((s) => !s);
+              setOpen(false);
+            }}
+            aria-label="Toggle search"
+          >
+            {searchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+          </button>
+
           {/* Mobile toggle */}
           <button
             className="lg:hidden"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => {
+              setOpen((o) => !o);
+              setSearchOpen(false);
+            }}
             aria-label="Toggle menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
+
+      {/* Mobile search panel */}
+      {searchOpen && (
+        <div className="border-t border-navy/10 bg-white lg:hidden">
+          <div className="container-wide py-3">
+            <ProductSearch autoFocus onNavigate={() => setSearchOpen(false)} />
+          </div>
+        </div>
+      )}
 
       {/* Mobile menu */}
       {open && (

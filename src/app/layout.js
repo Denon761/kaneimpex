@@ -8,7 +8,7 @@ const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist" });
 export const metadata = {
   metadataBase: new URL("https://kenimpex.co.uk"),
   title: {
-    default: "Kaneimpex — Custom Uniform & Sportswear Manufacturer",
+    default: "Kaneimpex | Custom Uniform & Sportswear Manufacturer",
     template: "%s | Kaneimpex",
   },
   description:
@@ -21,7 +21,7 @@ export const metadata = {
     "B2B apparel manufacturer",
   ],
   openGraph: {
-    title: "Kaneimpex — Custom Uniform & Sportswear Manufacturer",
+    title: "Kaneimpex | Custom Uniform & Sportswear Manufacturer",
     description:
       "B2B manufacturer of custom sportswear and uniforms for every industry.",
     type: "website",

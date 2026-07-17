@@ -63,7 +63,7 @@ export default function ReturnsPage() {
           team responds to all claims within 2 business days.
         </p>
         <p>
-          Please do not return goods before a claim is agreed — we will confirm
+          Please do not return goods before a claim is agreed. We will confirm
           whether items need to be sent back and provide return instructions if
           so. Agreed return shipping costs for faulty goods are covered by us.
         </p>

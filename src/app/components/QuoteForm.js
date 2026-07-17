@@ -194,7 +194,7 @@ export default function QuoteForm() {
           value={form.message}
           onChange={update}
           className={inputCls}
-          placeholder="Tell us about your requirements — sizes, colours, branding, deadlines…"
+          placeholder="Tell us about your requirements: sizes, colours, branding, deadlines…"
         />
       </Field>
 

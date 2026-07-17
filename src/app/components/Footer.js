@@ -14,7 +14,7 @@ export default function Footer() {
           </p>
           <h2 className="mt-4 max-w-xl text-3xl leading-[1.1] text-white sm:text-4xl">
             Let&apos;s kit out your team{" "}
-            <span className="text-white/40">— from first sample to final delivery.</span>
+            <span className="text-white/40">from first sample to final delivery.</span>
           </h2>
         </div>
         <Link

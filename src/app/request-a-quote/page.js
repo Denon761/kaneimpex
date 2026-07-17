@@ -37,7 +37,7 @@ export default function RequestQuotePage() {
               Request a Quote.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65">
-              Share your requirements — quantities, fabrics, branding — and our
+              Share your requirements, quantities, fabrics and branding, and our
               team will prepare a tailored quote for your custom uniform or
               sportswear program.
             </p>
