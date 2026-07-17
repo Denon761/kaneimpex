@@ -90,13 +90,15 @@ export default function Footer() {
               Company
             </p>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/#about" className="text-white/50 transition hover:text-white">About Us</Link></li>
-              <li><Link href="/#services" className="text-white/50 transition hover:text-white">Services</Link></li>
+              <li><Link href="/about" className="text-white/50 transition hover:text-white">About Us</Link></li>
+              <li><Link href="/services" className="text-white/50 transition hover:text-white">Services</Link></li>
+              <li><Link href="/factory" className="text-white/50 transition hover:text-white">Factory</Link></li>
+              <li><Link href="/quality-control" className="text-white/50 transition hover:text-white">Quality Control</Link></li>
+              <li><Link href="/certifications" className="text-white/50 transition hover:text-white">Certifications</Link></li>
+              <li><Link href="/faq" className="text-white/50 transition hover:text-white">FAQ</Link></li>
+              <li><Link href="/blog" className="text-white/50 transition hover:text-white">Blog</Link></li>
+              <li><Link href="/contact" className="text-white/50 transition hover:text-white">Contact Us</Link></li>
               <li><Link href="/request-a-quote" className="text-white/50 transition hover:text-white">Request a Quote</Link></li>
-              <li><Link href="/shipping" className="text-white/50 transition hover:text-white">Shipping Policy</Link></li>
-              <li><Link href="/returns" className="text-white/50 transition hover:text-white">Returns &amp; Refunds</Link></li>
-              <li><Link href="/privacy-policy" className="text-white/50 transition hover:text-white">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-white/50 transition hover:text-white">Terms &amp; Conditions</Link></li>
             </ul>
           </div>
 
@@ -158,7 +160,12 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-wide flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 sm:flex-row">
           <p>© {new Date().getFullYear()} Kaneimpex. All rights reserved.</p>
-          <p className="hidden sm:block">Custom Uniform &amp; Sportswear Manufacturing</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/shipping" className="transition hover:text-white">Shipping Policy</Link>
+            <Link href="/returns" className="transition hover:text-white">Returns &amp; Refunds</Link>
+            <Link href="/privacy-policy" className="transition hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="transition hover:text-white">Terms &amp; Conditions</Link>
+          </div>
           <a
             href="#"
             className="group inline-flex items-center gap-1.5 font-semibold text-white/60 transition hover:text-white"

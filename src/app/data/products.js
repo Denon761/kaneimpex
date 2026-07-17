@@ -589,6 +589,66 @@ const CATALOG = [
     files: [],
   },
   {
+    slug: "military-uniforms",
+    name: "Military Uniforms",
+    singular: "Military Uniform",
+    code: "MLU",
+    description:
+      "Battle-dress and service uniforms manufactured to spec for defence suppliers and cadet programs. Ripstop constructions, camouflage printing and mil-spec stitching throughout.",
+    features: [
+      "Ripstop poly-cotton fabrics",
+      "Custom camouflage printing",
+      "Mil-spec reinforced stitching",
+      "BDU & ACU cut options",
+    ],
+    descs: [
+      "BDU-cut jacket and trouser set in ripstop fabric.",
+      "Custom camouflage print matched to your spec.",
+      "Cadet program set with reinforced knees and elbows.",
+    ],
+    files: [],
+  },
+  {
+    slug: "combat-shirts",
+    name: "Combat Shirts",
+    singular: "Combat Shirt",
+    code: "CMB",
+    description:
+      "Combat-style shirts pairing stretch torso panels with durable ripstop sleeves. Built for range days, airsoft teams and tactical training programs.",
+    features: [
+      "Stretch torso, ripstop sleeves",
+      "Flat-lock chafe-free seams",
+      "Bicep pockets with loop panels",
+      "Camouflage & solid colourways",
+    ],
+    descs: [
+      "Stretch-torso combat shirt with ripstop sleeves.",
+      "Camouflage-print style with bicep loop panels.",
+      "Training version in solid duty colours.",
+    ],
+    files: [],
+  },
+  {
+    slug: "tactical-pants",
+    name: "Tactical Pants",
+    singular: "Tactical Pant",
+    code: "TAC",
+    description:
+      "Hard-wearing tactical and cargo pants with gusseted crotches, multi-pocket layouts and stretch panels for full range of movement in the field.",
+    features: [
+      "Ripstop & stretch-twill fabrics",
+      "Multi-pocket cargo layouts",
+      "Gusseted crotch & articulated knees",
+      "Reinforced belt loops",
+    ],
+    descs: [
+      "Cargo-style tactical pant with articulated knees.",
+      "Stretch-twill duty pant in solid colours.",
+      "Field pant with reinforced seat and knees.",
+    ],
+    files: [],
+  },
+  {
     slug: "security-uniforms",
     name: "Security Uniforms",
     singular: "Security Uniform",
@@ -605,6 +665,86 @@ const CATALOG = [
       "Duty shirt with epaulettes and badge points.",
       "Cargo trouser in durable twill.",
       "All-weather jacket with reflective accents.",
+    ],
+    files: [],
+  },
+  {
+    slug: "caps-hats",
+    name: "Caps & Hats",
+    singular: "Cap",
+    code: "CAP",
+    description:
+      "Custom caps and hats to complete any uniform program. Snapbacks, dad caps, trucker meshes and bucket hats with embroidered or printed branding.",
+    features: [
+      "Snapback, trucker & dad cap styles",
+      "3D & flat embroidery",
+      "Sublimated all-over prints",
+      "Custom woven labels",
+    ],
+    descs: [
+      "Structured snapback with 3D embroidered logo.",
+      "Trucker mesh cap with printed front panel.",
+      "Unstructured dad cap in washed cotton twill.",
+    ],
+    files: [],
+  },
+  {
+    slug: "socks",
+    name: "Custom Socks",
+    singular: "Sock Pair",
+    code: "SCK",
+    description:
+      "Knitted-to-order team and brand socks. Crew, quarter and knee-high lengths with woven-in logos, stripes and colourways that match your kit.",
+    features: [
+      "Knitted-in logos & patterns",
+      "Crew, quarter & knee-high lengths",
+      "Cushioned sole & arch support",
+      "Moisture-wicking yarns",
+    ],
+    descs: [
+      "Knee-high team sock with knitted-in stripes.",
+      "Crew sock with woven logo and cushioned sole.",
+      "Performance quarter sock in wicking yarn.",
+    ],
+    files: [],
+  },
+  {
+    slug: "sports-bags",
+    name: "Bags & Backpacks",
+    singular: "Bag",
+    code: "BAG",
+    description:
+      "Team duffels, drawstring gym sacks and backpacks in durable polyester with printed or embroidered branding, produced in bulk for clubs and brands.",
+    features: [
+      "600D+ durable polyester",
+      "Duffel, backpack & sack styles",
+      "Screen print & embroidery",
+      "Custom colourways & trims",
+    ],
+    descs: [
+      "Team duffel with embroidered club crest.",
+      "Drawstring gym sack with all-over print.",
+      "Backpack with padded straps and logo panel.",
+    ],
+    files: [],
+  },
+  {
+    slug: "beanies-scarves",
+    name: "Beanies & Scarves",
+    singular: "Beanie",
+    code: "BNE",
+    description:
+      "Knitted beanies and supporter scarves for teams, schools and merch lines. Jacquard-knit designs with your colours, crests and lettering built into the knit.",
+    features: [
+      "Jacquard-knit custom designs",
+      "Cuffed & fisherman beanie styles",
+      "Fan scarves with fringed ends",
+      "Woven or embroidered labels",
+    ],
+    descs: [
+      "Cuffed beanie with embroidered logo patch.",
+      "Jacquard supporter scarf in club colours.",
+      "Fisherman-style beanie in chunky knit.",
     ],
     files: [],
   },
@@ -632,42 +772,48 @@ export const productCategories = CATALOG.map((cat) => ({
 // categories, and the child pages live at /products/<slug>.
 const GROUPS = [
   {
-    name: "Sports Wear",
+    name: "Sportswear",
     cover: "/categories/sports-wear.png",
     slugs: [
       "soccer", "basketball", "base-ball", "usa-football",
       "cricket-wear", "rugby", "volleyball", "hockey-wear",
+      "track-suit", "trousers",
     ],
   },
   {
-    name: "Casual Wear",
-    cover: "/categories/casual-wear.png",
-    slugs: ["hoodies", "sweat-shirts", "t-shirts", "polo-shirts", "varsity-jackets"],
+    name: "Work Uniforms",
+    cover: "/categories/corporate-work-wear.png",
+    slugs: ["workwear-coveralls", "hi-vis-wear"],
   },
   {
-    name: "Training Wear",
-    cover: "/categories/training-wear.png",
-    slugs: ["track-suit", "trousers"],
-  },
-  {
-    name: "Medical Wear",
+    name: "Medical Uniforms",
     cover: "/categories/medical-wear.png",
     slugs: ["medical-scrubs", "lab-coats", "nurse-uniforms", "patient-gowns"],
   },
   {
-    name: "Hospitality Wear",
+    name: "Hospitality Uniforms",
     cover: "/categories/hospitality-wear.png",
     slugs: ["chef-coats", "aprons", "restaurant-uniforms"],
   },
   {
-    name: "Corporate & Work Wear",
-    cover: "/categories/corporate-work-wear.png",
-    slugs: ["corporate-shirts", "workwear-coveralls", "hi-vis-wear"],
+    name: "Corporate Uniforms",
+    cover: "/categories/casual-wear.png",
+    slugs: ["corporate-shirts", "polo-shirts", "t-shirts"],
   },
   {
-    name: "School & Security Wear",
+    name: "School Uniforms",
     cover: "/categories/school-security-wear.png",
-    slugs: ["school-uniforms", "security-uniforms"],
+    slugs: ["school-uniforms", "varsity-jackets", "hoodies", "sweat-shirts"],
+  },
+  {
+    name: "Military & Tactical",
+    cover: "/categories/military-tactical.png",
+    slugs: ["military-uniforms", "combat-shirts", "tactical-pants", "security-uniforms"],
+  },
+  {
+    name: "Accessories",
+    cover: "/categories/accessories.png",
+    slugs: ["caps-hats", "socks", "sports-bags", "beanies-scarves"],
   },
 ];
 

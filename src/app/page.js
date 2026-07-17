@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Award,
   BadgeCheck,
-  BookOpen,
   Building2,
   ChevronRight,
   Factory,
@@ -23,12 +22,12 @@ import SmartImage from "./components/SmartImage";
 
 const resources = [
   { icon: Building2, label: "About Us", href: "/about" },
+  { icon: Settings, label: "Services", href: "/services" },
   { icon: Factory, label: "Factory", href: "/factory" },
   { icon: ShieldCheck, label: "Quality Control", href: "/quality-control" },
   { icon: Award, label: "Certifications", href: "/certifications" },
   { icon: HelpCircle, label: "FAQ", href: "/faq" },
   { icon: Newspaper, label: "Blog", href: "/blog" },
-  { icon: BookOpen, label: "Catalog", href: "/#products" },
   { icon: Phone, label: "Contact Us", href: "/contact" },
   { icon: Mail, label: "Request a Quote", href: "/request-a-quote" },
 ];
@@ -115,7 +114,7 @@ export default function Home() {
                       <li key={cat.slug}>
                         <Link
                           href={`/products/${cat.slug}`}
-                          className="flex items-start gap-1.5 text-[13px] font-medium leading-snug text-navy/70 transition hover:text-brand"
+                          className="flex items-start gap-1.5 text-[13px] font-bold leading-snug text-navy/70 transition hover:text-brand"
                         >
                           <ChevronRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand" />
                           {cat.name}

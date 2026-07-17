@@ -66,11 +66,14 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/#services" className="text-[13px] font-medium text-navy/70 hover:text-navy">
+          <Link href="/services" className="text-[13px] font-medium text-navy/70 hover:text-navy">
             Services
           </Link>
-          <Link href="/#about" className="text-[13px] font-medium text-navy/70 hover:text-navy">
+          <Link href="/about" className="text-[13px] font-medium text-navy/70 hover:text-navy">
             About
+          </Link>
+          <Link href="/contact" className="text-[13px] font-medium text-navy/70 hover:text-navy">
+            Contact
           </Link>
         </nav>
 
@@ -133,6 +136,15 @@ export default function Header() {
             </Link>
             <Link href="/#products" onClick={() => setOpen(false)} className="py-2 font-semibold">
               Products
+            </Link>
+            <Link href="/services" onClick={() => setOpen(false)} className="py-2 font-semibold">
+              Services
+            </Link>
+            <Link href="/about" onClick={() => setOpen(false)} className="py-2 font-semibold">
+              About
+            </Link>
+            <Link href="/contact" onClick={() => setOpen(false)} className="py-2 font-semibold">
+              Contact
             </Link>
             <p className="pt-2 text-xs font-bold uppercase tracking-wider text-navy/40">
               Categories
