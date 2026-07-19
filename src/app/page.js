@@ -65,26 +65,31 @@ export default function Home() {
                 tactical gear. We design, manufacture and deliver premium
                 custom apparel in bulk, with your branding on every stitch.
               </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-                <Link href="/request-a-quote" className="btn-primary">
-                  Request a Quote <ArrowUpRight className="h-4 w-4" />
-                </Link>
-                <Link href="/#products" className="btn-light">
-                  View Products <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
             </div>
 
-            {/* Product banner — composed uniform shot over the navy band */}
-            <Link href="/#products" className="group block">
-              <SmartImage
-                src="/banners/bannerimage.png"
-                fallback="/banners/hero.svg"
-                alt="Custom basketball, rugby, soccer and American football uniforms"
-                eager
-                className="mx-auto w-full max-w-xl object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.45)] transition duration-500 group-hover:scale-[1.03] lg:ml-auto lg:mr-0"
-              />
-            </Link>
+            {/* Product banner — 4-up mockup photo strip over the navy band */}
+            <div className="mx-auto grid w-full max-w-xl grid-cols-4 gap-3 lg:ml-auto lg:mr-0">
+              {[
+                { src: "/mockups/Combat Shirts.jpg", alt: "Combat shirts" },
+                { src: "/mockups/Chef Coats.jpg", alt: "Chef coats" },
+                { src: "/mockups/Medical Scrubs.webp", alt: "Medical scrubs" },
+                { src: "/mockups/Hi-Vis Safety Wear.jpg", alt: "Hi-vis safety wear" },
+              ].map((img) => (
+                <Link
+                  key={img.src}
+                  href="/#products"
+                  className="group overflow-hidden rounded-2xl bg-white p-2 shadow-lg shadow-navy-900/40"
+                >
+                  <SmartImage
+                    src={img.src}
+                    fallback="/banners/hero.svg"
+                    alt={img.alt}
+                    eager
+                    className="aspect-[1/2.4] w-full rounded-xl object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </Link>
+              ))}
+            </div>
         </div>
       </section>
 

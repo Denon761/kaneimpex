@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import {
   ArrowUpRight,
   BadgeCheck,
-  Check,
   ChevronRight,
   ClipboardList,
   Package,
@@ -69,7 +68,7 @@ export default async function ProductCategoryPage({ params }) {
 
   return (
     <>
-      {/* OVERVIEW — full-width navy band: info left, product photo right */}
+      {/* OVERVIEW — simple centered navy banner */}
       <section className="relative overflow-hidden bg-navy-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,116,212,0.35),transparent_55%)]" />
 
@@ -94,48 +93,6 @@ export default async function ProductCategoryPage({ params }) {
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/65">
               {category.description}
             </p>
-
-            {/* Feature checklist */}
-            <ul className="mt-7 grid max-w-xl gap-x-8 gap-y-2.5 sm:grid-cols-2">
-              {category.features.map((f) => (
-                <li
-                  key={f}
-                  className="flex items-start gap-2 text-sm font-medium text-white/85"
-                >
-                  <span className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full bg-brand">
-                    <Check className="h-3 w-3" strokeWidth={3} />
-                  </span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            {/* Quick facts */}
-            <div className="mt-7 flex flex-wrap gap-2.5">
-              {[
-                category.products.length
-                  ? `${category.products.length} Ready Designs`
-                  : "Made to Order",
-                "100% Customizable",
-                "Bulk B2B Orders",
-              ].map((m) => (
-                <span
-                  key={m}
-                  className="rounded-full border border-white/20 px-3.5 py-1.5 text-[11px] font-semibold text-white/75"
-                >
-                  {m}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={quoteHref} className="btn-primary">
-                Request a Quote <ArrowUpRight className="h-4 w-4" />
-              </Link>
-              <Link href="/#products" className="btn-light">
-                All Products <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
 
           {/* Cover photo on a white card */}

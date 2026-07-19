@@ -541,6 +541,7 @@ const CATALOG = [
     name: "Coveralls & Workwear",
     singular: "Coverall",
     code: "CVR",
+    image: "/categories/corporate-work-wear.png",
     description:
       "Heavy-duty coveralls and workwear for industrial teams. Reinforced stitching, tool pockets and durable fabrics that survive the job site.",
     features: [
