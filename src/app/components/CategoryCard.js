@@ -8,7 +8,7 @@ export default function CategoryCard({ category }) {
   return (
     <Link
       href={`/products/${category.slug}`}
-      className="group relative block overflow-hidden rounded-2xl bg-white ring-1 ring-navy/10"
+      className="group relative block overflow-hidden rounded-3xl bg-white ring-1 ring-navy/10"
     >
       {/* Product shots are on white, so contain + margins keeps the full
           garment visible and the padding blends in seamlessly */}

@@ -95,7 +95,7 @@ export default function Home() {
             {productGroups.map((group) => (
               <div
                 key={group.name}
-                className="card-hover flex flex-col rounded-2xl border border-navy/10 bg-white p-5"
+                className="card-hover flex flex-col rounded-3xl border border-navy/10 bg-white p-5"
               >
                 {/* Card header — parent category */}
                 <div className="catalog-head justify-between">
@@ -148,7 +148,7 @@ export default function Home() {
             {/* CTA card completes the 4-column grid */}
             <Link
               href="/request-a-quote"
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-navy-900 p-6 text-white"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-navy-900 p-6 text-white"
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,116,212,0.4),transparent_60%)]" />
               <div className="relative">

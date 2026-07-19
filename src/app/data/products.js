@@ -373,6 +373,7 @@ const CATALOG = [
     name: "Medical Scrubs",
     singular: "Scrub Set",
     code: "MSC",
+    image: "/mockups/Medical Scrubs.webp",
     description:
       "Medical scrubs engineered for long shifts. Antimicrobial, easy-care poly-cotton blends in unisex and tailored fits, with custom embroidery for hospitals and clinics.",
     features: [
@@ -393,6 +394,7 @@ const CATALOG = [
     name: "Lab Coats",
     singular: "Lab Coat",
     code: "LBC",
+    image: "/mockups/Lab Coats.webp",
     description:
       "Professional lab coats for medical, laboratory and industrial use. Crisp poly-cotton twill with custom lengths, closures and embroidered branding.",
     features: [
@@ -413,6 +415,7 @@ const CATALOG = [
     name: "Nurse Uniforms",
     singular: "Nurse Uniform",
     code: "NRS",
+    image: "/mockups/Nurse Uniforms.jpg",
     description:
       "Smart, durable nurse uniforms and tunics. Breathable fabrics that stand up to industrial laundering, delivered in your facility's colour scheme.",
     features: [
@@ -433,6 +436,7 @@ const CATALOG = [
     name: "Patient Gowns",
     singular: "Patient Gown",
     code: "PTG",
+    image: "/mockups/Patient Gowns.jpg",
     description:
       "Comfortable, dignified patient gowns for hospitals and care facilities. Soft, launder-resistant fabrics with secure tie or snap closures.",
     features: [
@@ -453,6 +457,7 @@ const CATALOG = [
     name: "Chef Coats",
     singular: "Chef Coat",
     code: "CHF",
+    image: "/mockups/Chef Coats.jpg",
     description:
       "Classic and modern chef coats built for hot kitchens. Breathable cotton twills with double-breasted fronts, custom buttons and embroidered branding.",
     features: [
@@ -473,6 +478,7 @@ const CATALOG = [
     name: "Aprons",
     singular: "Apron",
     code: "APN",
+    image: "/mockups/Aprons.jpg",
     description:
       "Bib, waist and bistro aprons for restaurants, cafes and retail. Durable canvas, denim and poly-cotton with custom pockets and branding.",
     features: [
@@ -493,6 +499,7 @@ const CATALOG = [
     name: "Restaurant Uniforms",
     singular: "Restaurant Uniform",
     code: "RST",
+    image: "/mockups/Restaurant Uniforms.jpg",
     description:
       "Front-of-house uniforms that match your brand. Shirts, waistcoats and service wear in coordinated colours for restaurants, hotels and cafes.",
     features: [
@@ -513,6 +520,7 @@ const CATALOG = [
     name: "Corporate Shirts",
     singular: "Corporate Shirt",
     code: "CPS",
+    image: "/mockups/Corporate Shirts.jpg",
     description:
       "Tailored corporate shirts for offices, banks and retail teams. Easy-iron poly-cotton weaves with embroidered logos and consistent sizing across your team.",
     features: [
@@ -553,6 +561,7 @@ const CATALOG = [
     name: "Hi-Vis Safety Wear",
     singular: "Hi-Vis Garment",
     code: "HVS",
+    image: "/mockups/Hi-Vis Safety Wear.jpg",
     description:
       "High-visibility vests, shirts and jackets for site and road crews. Certified fluorescent fabrics with reflective taping and custom branding.",
     features: [
@@ -573,6 +582,7 @@ const CATALOG = [
     name: "School Uniforms",
     singular: "School Uniform",
     code: "SCU",
+    image: "/mockups/School Uniforms.jpg",
     description:
       "Complete school uniform programs: shirts, polos, sweaters and PE kits produced in bulk with embroidered school crests and colours.",
     features: [
@@ -593,6 +603,7 @@ const CATALOG = [
     name: "Military Uniforms",
     singular: "Military Uniform",
     code: "MLU",
+    image: "/mockups/Military Uniforms.jpg",
     description:
       "Battle-dress and service uniforms manufactured to spec for defence suppliers and cadet programs. Ripstop constructions, camouflage printing and mil-spec stitching throughout.",
     features: [
@@ -613,6 +624,7 @@ const CATALOG = [
     name: "Combat Shirts",
     singular: "Combat Shirt",
     code: "CMB",
+    image: "/mockups/Combat Shirts.jpg",
     description:
       "Combat-style shirts pairing stretch torso panels with durable ripstop sleeves. Built for range days, airsoft teams and tactical training programs.",
     features: [
@@ -633,6 +645,7 @@ const CATALOG = [
     name: "Tactical Pants",
     singular: "Tactical Pant",
     code: "TAC",
+    image: "/mockups/Tactical Pants.webp",
     description:
       "Hard-wearing tactical and cargo pants with gusseted crotches, multi-pocket layouts and stretch panels for full range of movement in the field.",
     features: [
@@ -653,6 +666,7 @@ const CATALOG = [
     name: "Security Uniforms",
     singular: "Security Uniform",
     code: "SEC",
+    image: "/mockups/Security Uniforms.jpg",
     description:
       "Professional security uniforms with a sharp, authoritative look. Durable shirts, trousers and outerwear with badge and epaulette detailing.",
     features: [
@@ -673,6 +687,7 @@ const CATALOG = [
     name: "Caps & Hats",
     singular: "Cap",
     code: "CAP",
+    image: "/mockups/Caps & Hats.jpg",
     description:
       "Custom caps and hats to complete any uniform program. Snapbacks, dad caps, trucker meshes and bucket hats with embroidered or printed branding.",
     features: [
@@ -693,6 +708,7 @@ const CATALOG = [
     name: "Custom Socks",
     singular: "Sock Pair",
     code: "SCK",
+    image: "/mockups/Custom Socks.jpg",
     description:
       "Knitted-to-order team and brand socks. Crew, quarter and knee-high lengths with woven-in logos, stripes and colourways that match your kit.",
     features: [
@@ -713,6 +729,7 @@ const CATALOG = [
     name: "Bags & Backpacks",
     singular: "Bag",
     code: "BAG",
+    image: "/mockups/Bags & Backpacks.webp",
     description:
       "Team duffels, drawstring gym sacks and backpacks in durable polyester with printed or embroidered branding, produced in bulk for clubs and brands.",
     features: [
@@ -733,6 +750,7 @@ const CATALOG = [
     name: "Beanies & Scarves",
     singular: "Beanie",
     code: "BNE",
+    image: "/mockups/Beanies & Scarves.jpg",
     description:
       "Knitted beanies and supporter scarves for teams, schools and merch lines. Jacquard-knit designs with your colours, crests and lettering built into the knit.",
     features: [
@@ -754,19 +772,29 @@ const CATALOG = [
 
 const pad = (n) => String(n).padStart(2, "0");
 
-export const productCategories = CATALOG.map((cat) => ({
-  slug: cat.slug,
-  name: cat.name,
-  description: cat.description,
-  features: cat.features,
-  cover: cat.files.length ? `/products-img/${cat.slug}/${cat.files[0]}` : null,
-  products: cat.files.map((file, i) => ({
-    styleCode: `KI-${cat.code}-${pad(i + 1)}`,
-    name: `${cat.singular} KI-${cat.code}-${pad(i + 1)}`,
-    desc: cat.descs[i % cat.descs.length],
-    image: `/products-img/${cat.slug}/${file}`,
-  })),
-}));
+// Categories with a photo set in /public/products-img/<slug>/ list one product
+// per photo. Categories without a set fall back to their single `image`
+// (a photo in /public/mockups/) as the cover and first style.
+export const productCategories = CATALOG.map((cat) => {
+  const images = cat.files.length
+    ? cat.files.map((file) => `/products-img/${cat.slug}/${file}`)
+    : cat.image
+      ? [cat.image]
+      : [];
+  return {
+    slug: cat.slug,
+    name: cat.name,
+    description: cat.description,
+    features: cat.features,
+    cover: images[0] || null,
+    products: images.map((image, i) => ({
+      styleCode: `KI-${cat.code}-${pad(i + 1)}`,
+      name: `${cat.singular} KI-${cat.code}-${pad(i + 1)}`,
+      desc: cat.descs[i % cat.descs.length],
+      image,
+    })),
+  };
+});
 
 // Parent groups shown on the homepage — each card lists its child
 // categories, and the child pages live at /products/<slug>.

@@ -188,9 +188,9 @@ export default async function ProductCategoryPage({ params }) {
             {category.products.map((product) => (
               <div
                 key={product.styleCode}
-                className="card-hover group flex flex-col rounded-2xl border border-navy/10 bg-white p-4"
+                className="card-hover group flex flex-col rounded-3xl border border-navy/10 bg-white p-4"
               >
-                <div className="relative overflow-hidden rounded-xl">
+                <div className="relative overflow-hidden rounded-3xl">
                   <span className="absolute left-2.5 top-2.5 z-10 rounded-full bg-navy-900/85 px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wide text-white backdrop-blur">
                     {product.styleCode}
                   </span>
