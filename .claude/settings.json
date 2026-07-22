@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.pexels.com)",
+      "Bash(curl -v -o \"d:/Projects/Kaneimpex/public/products-img/aprons/test.jpg\" \"https://images.pexels.com/photos/6223212/pexels-photo-6223212.jpeg?auto=compress&cs=tinysrgb&w=1200\")"
+    ]
+  }
+}

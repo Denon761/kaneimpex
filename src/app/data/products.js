@@ -387,7 +387,10 @@ const CATALOG = [
       "Stretch-fabric set for all-day comfort.",
       "Colour-coded sets for departmental teams.",
     ],
-    files: [],
+    files: [
+      "Scrub-top-01.jpg", "Scrub-top-02.jpg", "Scrub-top-03.jpg",
+      "Scrub-top-04.jpg", "Scrub-top-05.jpg", "Scrub-top-06.jpg",
+    ],
   },
   {
     slug: "lab-coats",
@@ -408,7 +411,9 @@ const CATALOG = [
       "Snap-front style for quick changes.",
       "Tailored fit with embroidered name and title.",
     ],
-    files: [],
+    files: [
+      "Lab-coat-01.jpg", "Lab-coat-02.jpg", "Lab-coat-03.jpg", "Lab-coat-04.jpg",
+    ],
   },
   {
     slug: "nurse-uniforms",
@@ -429,7 +434,11 @@ const CATALOG = [
       "Breathable dress style for ward comfort.",
       "Colour-coded set for role identification.",
     ],
-    files: [],
+    files: [
+      "Nurse-uni-01.jpg", "Nurse-uni-02.jpg", "Nurse-uni-03.jpg",
+      "Nurse-uni-04.jpg", "Nurse-uni-05.jpg", "Nurse-uni-06.jpg",
+      "Nurse-uni-07.jpg", "Nurse-uni-08.jpg", "Nurse-uni-09.jpg",
+    ],
   },
   {
     slug: "patient-gowns",
@@ -450,7 +459,10 @@ const CATALOG = [
       "Snap-shoulder style for easy access care.",
       "Soft brushed fabric for patient comfort.",
     ],
-    files: [],
+    files: [
+      "Patient-gown-01.jpg", "Patient-gown-02.jpg",
+      "Patient-gown-03.jpg", "Patient-gown-04.jpg",
+    ],
   },
   {
     slug: "chef-coats",
@@ -471,7 +483,10 @@ const CATALOG = [
       "Modern zip-front coat with vented back.",
       "Short-sleeve style for high-heat kitchens.",
     ],
-    files: [],
+    files: [
+      "Chef-coat-01.jpg", "Chef-coat-02.jpg", "Chef-coat-03.jpg",
+      "Chef-coat-04.jpg", "Chef-coat-05.jpg",
+    ],
   },
   {
     slug: "aprons",
@@ -492,7 +507,9 @@ const CATALOG = [
       "Waist apron with triple pocket layout.",
       "Bistro-length style in stain-resistant fabric.",
     ],
-    files: [],
+    files: [
+      "Apron-01.jpg", "Apron-02.jpg", "Apron-03.jpg", "Apron-04.jpg", "Apron-05.jpg",
+    ],
   },
   {
     slug: "restaurant-uniforms",
@@ -513,7 +530,10 @@ const CATALOG = [
       "Stain-resistant front-of-house set.",
       "Coordinated team look for hotels and cafes.",
     ],
-    files: [],
+    files: [
+      "Waiter-01.jpg", "Waiter-02.jpg", "Waiter-03.jpg",
+      "Waiter-04.jpg", "Waiter-05.jpg", "Waiter-06.jpg",
+    ],
   },
   {
     slug: "corporate-shirts",
@@ -534,7 +554,10 @@ const CATALOG = [
       "Tailored fit in classic office colours.",
       "Team set with consistent sizing and trims.",
     ],
-    files: [],
+    files: [
+      "Corp-shirt-01.jpg", "Corp-shirt-02.jpg", "Corp-shirt-03.jpg", "Corp-shirt-04.jpg",
+      "Corp-shirt-05.jpg", "Corp-shirt-06.jpg", "Corp-shirt-07.jpg", "Corp-shirt-08.jpg",
+    ],
   },
   {
     slug: "workwear-coveralls",
@@ -555,7 +578,10 @@ const CATALOG = [
       "Bib overall in heavy-duty twill.",
       "Work set with reflective tape detailing.",
     ],
-    files: [],
+    files: [
+      "Coverall-01.jpg", "Coverall-02.jpg", "Coverall-03.jpg",
+      "Coverall-04.jpg", "Coverall-05.jpg",
+    ],
   },
   {
     slug: "hi-vis-wear",
@@ -576,7 +602,10 @@ const CATALOG = [
       "Long-sleeve shirt with reflective taping.",
       "Insulated hi-vis jacket for winter sites.",
     ],
-    files: [],
+    files: [
+      "Hi-vis-01.jpg", "Hi-vis-02.jpg", "Hi-vis-03.jpg",
+      "Hi-vis-04.jpg", "Hi-vis-05.jpg", "Hi-vis-06.jpg",
+    ],
   },
   {
     slug: "school-uniforms",
@@ -597,7 +626,7 @@ const CATALOG = [
       "Polo and PE kit in school colours.",
       "Hard-wearing set sized from primary to senior.",
     ],
-    files: [],
+    files: ["School-uni-01.jpg", "School-uni-02.jpg"],
   },
   {
     slug: "military-uniforms",
@@ -618,7 +647,7 @@ const CATALOG = [
       "Custom camouflage print matched to your spec.",
       "Cadet program set with reinforced knees and elbows.",
     ],
-    files: [],
+    files: ["Mil-01.jpg", "Mil-02.jpg", "Mil-03.jpg", "Mil-04.jpg"],
   },
   {
     slug: "combat-shirts",
@@ -639,7 +668,7 @@ const CATALOG = [
       "Camouflage-print style with bicep loop panels.",
       "Training version in solid duty colours.",
     ],
-    files: [],
+    files: ["Combat-01.jpg", "Combat-02.jpg", "Combat-03.jpg", "Combat-04.jpg"],
   },
   {
     slug: "tactical-pants",
@@ -660,7 +689,10 @@ const CATALOG = [
       "Stretch-twill duty pant in solid colours.",
       "Field pant with reinforced seat and knees.",
     ],
-    files: [],
+    files: [
+      "Tactical-01.jpg", "Tactical-02.jpg", "Tactical-03.jpg",
+      "Tactical-04.jpg", "Tactical-05.jpg", "Tactical-06.jpg",
+    ],
   },
   {
     slug: "security-uniforms",
@@ -681,7 +713,10 @@ const CATALOG = [
       "Cargo trouser in durable twill.",
       "All-weather jacket with reflective accents.",
     ],
-    files: [],
+    files: [
+      "Security-01.jpg", "Security-02.jpg", "Security-03.jpg",
+      "Security-04.jpg", "Security-05.jpg", "Security-06.jpg",
+    ],
   },
   {
     slug: "caps-hats",
@@ -702,7 +737,10 @@ const CATALOG = [
       "Trucker mesh cap with printed front panel.",
       "Unstructured dad cap in washed cotton twill.",
     ],
-    files: [],
+    files: [
+      "Cap-01.jpg", "Cap-02.jpg", "Cap-03.jpg", "Cap-04.jpg",
+      "Cap-05.jpg", "Cap-06.jpg", "Cap-07.jpg", "Cap-08.jpg",
+    ],
   },
   {
     slug: "socks",
@@ -723,7 +761,10 @@ const CATALOG = [
       "Crew sock with woven logo and cushioned sole.",
       "Performance quarter sock in wicking yarn.",
     ],
-    files: [],
+    files: [
+      "Sock-01.jpg", "Sock-02.jpg", "Sock-03.jpg", "Sock-04.jpg",
+      "Sock-05.jpg", "Sock-06.jpg", "Sock-07.jpg",
+    ],
   },
   {
     slug: "sports-bags",
@@ -744,7 +785,7 @@ const CATALOG = [
       "Drawstring gym sack with all-over print.",
       "Backpack with padded straps and logo panel.",
     ],
-    files: [],
+    files: ["Bag-01.jpg", "Bag-02.jpg", "Bag-03.jpg", "Bag-04.jpg", "Bag-05.jpg"],
   },
   {
     slug: "beanies-scarves",
@@ -765,7 +806,10 @@ const CATALOG = [
       "Jacquard supporter scarf in club colours.",
       "Fisherman-style beanie in chunky knit.",
     ],
-    files: [],
+    files: [
+      "Beanie-01.jpg", "Beanie-02.jpg", "Beanie-03.jpg",
+      "Beanie-04.jpg", "Beanie-05.jpg", "Beanie-06.jpg", "Beanie-07.jpg",
+    ],
   },
 ];
 
@@ -810,7 +854,7 @@ const GROUPS = [
     ],
   },
   {
-    name: "Work Uniforms",
+    name: "Workwear",
     cover: "/categories/corporate-work-wear.png",
     slugs: ["workwear-coveralls", "hi-vis-wear"],
   },
