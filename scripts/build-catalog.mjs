@@ -83,7 +83,13 @@ productGroups.forEach((g) => {
 const CARD_PER_ROW = 2;
 const CARD_GAP = 16;
 const CARD_W = (PAGE_W - MARGIN * 2 - CARD_GAP) / CARD_PER_ROW;
-const IMG_H = 200;
+const IMG_H = 130;
+const ROW_GAP = 42;
+
+// Extra feature photos shown at the top of a category page, above the description.
+const HERO_IMAGES = {
+  "hi-vis-wear": ["/mockups/hi-vis-jacket.jpg", "/mockups/hi-vis-jacket-1.jpg"],
+};
 
 let pageCounter = 2; // cover + TOC already emitted
 
@@ -102,6 +108,25 @@ function drawCategoryPage(cat, groupName) {
   doc.fillColor("#ffffff").font("Helvetica-Bold").fontSize(20).text(cat.name, MARGIN, 32);
 
   let y = 90;
+
+  const hero = HERO_IMAGES[cat.slug];
+  if (hero?.length) {
+    const HERO_H = 90;
+    const heroW = (PAGE_W - MARGIN * 2 - CARD_GAP * (hero.length - 1)) / hero.length;
+    hero.forEach((img, i) => {
+      const x = MARGIN + i * (heroW + CARD_GAP);
+      doc.rect(x, y, heroW, HERO_H).fill("#f3f4f6");
+      try {
+        doc.image(resolveImg(img), x, y, {
+          fit: [heroW, HERO_H],
+          align: "center",
+          valign: "center",
+        });
+      } catch {}
+    });
+    y += HERO_H + 14;
+  }
+
   doc
     .fillColor("#374151")
     .font("Helvetica")
@@ -117,12 +142,12 @@ function drawCategoryPage(cat, groupName) {
     y += doc.heightOfString(featLine, { width: PAGE_W - MARGIN * 2 }) + 14;
   }
 
-  const products = cat.products.slice(0, 4);
+  const products = cat.products.slice(0, 6);
   products.forEach((p, i) => {
     const col = i % CARD_PER_ROW;
     const row = Math.floor(i / CARD_PER_ROW);
     const x = MARGIN + col * (CARD_W + CARD_GAP);
-    const cardY = y + row * (IMG_H + 46);
+    const cardY = y + row * (IMG_H + ROW_GAP);
 
     doc.rect(x, cardY, CARD_W, IMG_H).fill("#f3f4f6");
     try {

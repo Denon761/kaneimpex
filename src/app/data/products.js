@@ -605,6 +605,7 @@ const CATALOG = [
     files: [
       "Hi-vis-01.jpg", "Hi-vis-02.jpg", "Hi-vis-03.jpg",
       "Hi-vis-04.jpg", "Hi-vis-05.jpg", "Hi-vis-06.jpg",
+      "Hi-vis-07.jpg", "Hi-vis-08.jpg",
     ],
   },
   {
